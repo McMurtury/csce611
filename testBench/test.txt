@@ -1,0 +1,72 @@
+// function to convert decimal to binary 
+void decToBinary(int n) 
+{ 
+    // array to store binary number 
+    int binaryNum[32]; 
+  
+    // counter for binary array 
+    int i = 0; 
+    while (n > 0) { 
+  
+        // storing remainder in binary array 
+        binaryNum[i] = n % 2; 
+        n = n / 2; 
+        i++; 
+    } 
+  
+    // printing binary array in reverse order 
+    for (int j = i - 1; j >= 0; j--) 
+        cout << binaryNum[j]; 
+} 
+
+// C++ program to convert binary to decimal 
+#include <iostream> 
+using namespace std; 
+  
+// Function to convert binary to decimal 
+int binaryToDecimal(int n) 
+{ 
+    int num = n; 
+    int dec_value = 0; 
+  
+    // Initializing base value to 1, i.e 2^0 
+    int base = 1; 
+  
+    int temp = num; 
+    while (temp) { 
+        int last_digit = temp % 10; 
+        temp = temp / 10; 
+  
+        dec_value += last_digit * base; 
+  
+        base = base * 2; 
+    } 
+  
+    return dec_value; 
+} 
+
+/* rand example: guess the number */
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
+int main ()
+{
+  int iSecret, iGuess;
+
+  /* initialize random seed: */
+  srand (time(NULL));
+
+  /* generate secret number between 1 and 10: */
+  iSecret = rand() % 10 + 1;
+
+  do {
+    printf ("Guess the number (1 to 10): ");
+    scanf ("%d",&iGuess);
+    if (iSecret<iGuess) puts ("The secret number is lower");
+    else if (iSecret>iGuess) puts ("The secret number is higher");
+  } while (iSecret!=iGuess);
+
+  puts ("Congratulations!");
+  return 0;
+}
