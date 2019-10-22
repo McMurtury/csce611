@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ $# -ge 1 ] ; then
+	if [ "$1" = "help" ] ; then
+		echo "Run the ModelSim simulator GUI for this project" 1>&2
+		exit 0
+	fi
+fi
+
+$0 clean_sim
+vsim -do scripts/test.tcl
