@@ -1,0 +1,20 @@
+vsim -novopt work.CSCE611_regfile_testbench
+echo....
+add wave -r /CSCE611_regfile_testbench/*
+
+
+
+
+
+
+sim file
+add wave /rpncalc/val2
+add wave /rpncalc/key_push
+add wave /rpncalc/Aout
+add wave /rpncalc/Bout
+add wave /rpncalc/stack_top
+add wave /rpncalc/stack_top_minus_one
+add wave /rpncalc/current_state
+add wave /rpncalc/next_state
+add wave /rpncalc/top_captured
+add wave /rpncalc/next_captured

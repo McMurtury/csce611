@@ -1,0 +1,174 @@
+// test bitwise AND with non-zero output #0
+F_0F0F0F0F_FFFFFFFF_00_0_00000000_0F0F0F0F_0
+// test bitwise AND with all zero output #1
+F_0F0F0F0F_F0F0F0F0_00_0_00000000_00000000_1
+
+// test bitwise OR with non-zero output #2
+0_0F0F0F0F_FFFFFFFF_00_1_00000000_0F0F0F0F_0
+// test bitwise OR with all zero output #3
+0_0F0F0F0F_F0F0F0F0_00_1_00000000_00000000_1
+
+// test bitwise OR with both inputs zero #4
+F_00000000_00000000_00_1_00000000_00000000_1
+// test bitwise OR with 0 and 1 #5
+F_00000000_00000001_00_1_00000000_00000001_0
+
+// test bitwise NOR with both inputs zero #6
+F_00000000_00000000_00_2_00000000_FFFFFFFF_0
+// test bitwise NOR with 0 and 1 #7
+F_00000000_0000000F_00_2_00000000_FFFFFFF0_0
+
+// test bitwise XOR with both inputs zero #8
+F_00000000_00000000_00_3_00000000_00000000_1
+// test bitwise XOR with 0 and 1 inputs #9
+F_00000000_00000001_00_3_00000000_00000001_0
+
+// test + with both inputs zero #10
+F_00000000_00000000_00_4_00000000_00000000_1
+// test + with 0 and 1 #11
+F_00000000_00000001_00_4_00000000_00000001_0
+
+// test - with both inputs zero #12
+F_00000000_00000000_00_5_00000000_00000000_1
+// test - with 0 and 1 #13
+F_00000001_00000001_00_5_00000000_00000000_1
+
+// test Signed * with both inputs zero #14
+F_00000000_00000000_00_6_00000000_00000000_1
+// test signed * with 0 and 1 #15
+F_00000000_00000001_00_6_00000000_00000000_1
+
+// test unsigned * with both inputs zero #16
+F_00000000_00000000_00_7_00000000_00000000_1
+// test unsigned * with 0 and 1 #17
+F_00000000_00000001_00_7_00000000_00000000_1
+
+// test bitwise << with both inputs zero #18
+F_00000000_00000000_00_8_00000000_00000000_1
+// test bitwise << with 0 and 1 #19
+F_00000000_00000001_00_8_00000000_00000001_0
+
+// test bitwise >> with both inputs zero #20
+F_00000000_00000000_00_9_00000000_00000000_1
+// test bitwise >> with 0 and 1 #21
+F_00000000_00000001_00_9_00000000_00000001_0
+
+// test bitwise >>> with both inputs zero #22
+F_00000000_00000000_00_A_00000000_00000000_1
+// test bitwise >>> with 0 and 1 #23
+F_00000000_00000001_00_A_00000000_00000001_0
+
+// test bitwise >>> with both inputs zero #24
+F_00000000_00000000_00_B_00000000_00000000_1
+// test bitwise >>> with 0 and 1 #25
+F_00000000_00000001_00_B_00000000_00000001_0
+
+// test signed < with both inputs zero #26
+F_00000000_00000000_00_C_00000000_00000000_1
+// test signed < with 0 and 1 #27
+F_00000000_00000001_00_C_00000000_00000001_0
+
+// test unsigned < with both inputs zero #28
+F_00000000_00000000_00_D_00000000_00000001_0
+// test unsigned < with 0 and 1 #29
+F_00000000_00000001_00_D_00000000_00000001_0
+
+// test signed > with both inputs zero #30
+F_00000000_00000000_00_E_00000000_00000001_0
+// test signed > with 0 and 1 #31
+F_00000000_00000001_00_E_00000000_00000001_0
+
+// test unsigned > with both inputs zero #32
+F_00000000_00000000_00_F_00000000_00000001_0
+// test unsigned > with 0 and 1 #33
+F_00000000_00000001_00_F_00000000_00000001_0
+
+// test unsigned > with both inputs zero #34
+F_00000000_00000000_00_F_00000000_00000001_0
+
+// test + with -1 and 1 #35
+F_FFFFFFFF_00000001_00_4_00000000_00000000_1
+
+// test signed * with 1048575 and 269484031 #36
+F_000FFFFF_100FFFFF_00_6_000100FF_EFE00001_0
+
+// test signed * with -100 and 269484031 #37
+F_FFFFFF9C_100FFFFF_00_6_FFFFFFF9_B9C00064_0
+
+// test signed * with -100 and -100 #38
+F_FFFFFF9C_FFFFFF9C_00_6_00000000_00002710_0
+
+// test bitwise >>> with 0 and 1 #39
+F_00000000_00000001_01_A_00000000_00000000_1
+
+// test bitwise >>1FD53A00> BY 3 #40
+F_00000001_12CFFF2C_03_A_00000000_0259FFE5_0
+
+// test bitwise >>> BY 5 #41
+F_00000001_1FC00F2C_05_A_00000000_00FE0079_0
+
+// test bitwise >>> BY 5 #42
+F_00000001_501340FA_05_A_00000000_02809A07_0
+
+// test bitwise >>> BY 10 #43
+F_00000001_EFF54360_10_A_00000000_003BFD50_0
+
+// test bitwise >> BY 21 #44
+F_00000000_1FD53A00_21_9_00000000_000000FE_0
+
+// test bitwise >> BY 5 #45
+F_00000000_1FD53A00_05_9_00000000_00FEA9D0_0
+
+// test bitwise >> BY 10 #46
+F_00000000_1FD53A00_10_9_00000000_0007F54E_0
+
+// test bitwise >> BY 8 #47
+F_00000000_1FD53A00_08_9_00000000_001FD53A_0
+
+// test bitwise >> BY 16 #48
+F_00000000_1FD53A00_16_9_00000000_00001FD5_0
+
+// test - with input values of 572661760 and -100 #49
+F_1FD53A00_FFFFFF9C_00_5_00000000_1FD53A64_0
+
+// test - with input values of -100 and 534067712 #50
+F_FFFFFF9C_1FD53A00_00_5_00000000_E02AC59C_0
+
+// test - with input values of 1 and 572661760 #51
+F_00000001_22222000_00_5_00000000_DDDDE001_0
+
+// test bitwise << with 1 * 2^5 #52
+F_00000000_00000001_05_8_00000000_00000020_0
+
+// test bitwise << with 1 * 2^21 #53
+F_00000000_00000001_21_8_00000000_00200000_0
+
+// test bitwise << with 1 * 2^10 #54
+F_00000000_00000001_10_8_00000000_00000400_0
+
+// test bitwise << with 1 * 2^9 #55
+F_00000000_00000001_09_8_00000000_00000200_0
+
+// test + with -100 and 557483467 #56
+F_FFFFFF9C_213A85CB_00_4_00000000_213A8567_0
+
+// test unsigned * with 4294967196 and 1 #57
+F_FFFFFF9C_00000001_00_7_00000000_FFFFFF9C_0
+
+// test signed < with -100 and 1 #58
+F_FFFFFF9C_00000001_00_C_00000000_00000001_0
+
+// test signed < with -100 and 1 #59
+F_00000001_FFFFFF9C_00_C_00000000_00000000_1
+
+// test bitwise AND with 16777215 and 4294967196 #60
+F_00FFFFFF_FFFFFF9C_00_0_00000000_00FFFF9C_0
+
+// test bitwise OR with 16777215 and 1 #61
+F_00FFFFFF_00000001_00_1_00000000_00FFFFFF_0
+
+// test bitwise NOR with 16777215 and 1 #62
+F_00FFFFFF_00000001_00_2_00000000_FF000000_0
+
+// test bitwise XOR with 16777215 and 1 inputs #63
+F_00FFFFFF_00000001_00_3_00000000_00FFFFFE_0
