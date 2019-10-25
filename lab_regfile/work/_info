@@ -7,10 +7,10 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/acct/cnbutler/lab_regfile
+Z0 d/acct/mcmurtum/Documents/csce611/lab_regfile
 valu
 Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z2 !s110 1571784442
+Z2 !s110 1572024972
 !i10b 1
 !s100 o9iDP_NVzcR9ED6L;N:mc2
 I=P<nR?F[5hA>XT]4l40PC2
@@ -18,19 +18,19 @@ Z3 VDg1SIo80bB@j0V0VzS_@n1
 !s105 alu_sv_unit
 S1
 R0
-w1571177981
+Z4 w1572023043
 8alu.sv
 Falu.sv
 L0 1
-Z4 OL;L;10.4b;61
+Z5 OL;L;10.4b;61
 r1
 !s85 0
 31
-Z5 !s108 1571784441.000000
-Z6 !s107 rpncalc.sv|regfile.sv|alu.sv|CSCE611_lab_regfile.sv|
-Z7 !s90 -reportprogress|300|-novopt|CSCE611_lab_regfile.sv|alu.sv|regfile.sv|rpncalc.sv|
+Z6 !s108 1572024972.000000
+Z7 !s107 rpncalc.sv|regfile.sv|alu.sv|CSCE611_lab_regfile.sv|
+Z8 !s90 -reportprogress|300|-novopt|CSCE611_lab_regfile.sv|alu.sv|regfile.sv|rpncalc.sv|
 !i113 1
-Z8 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z9 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 vCSCE611_lab_regfile
 R1
 R2
@@ -41,19 +41,19 @@ R3
 !s105 CSCE611_lab_regfile_sv_unit
 S1
 R0
-w1569615185
+R4
 8CSCE611_lab_regfile.sv
 FCSCE611_lab_regfile.sv
 L0 6
-R4
+R5
 r1
 !s85 0
 31
-R5
 R6
 R7
-!i113 1
 R8
+!i113 1
+R9
 n@c@s@c@e611_lab_regfile
 vregfile
 R1
@@ -65,16 +65,16 @@ R3
 !s105 regfile_sv_unit
 S1
 R0
-w1571177982
+R4
 8regfile.sv
 Fregfile.sv
 L0 3
-R4
+R5
 r1
 !s85 0
 31
-R5
 R6
 R7
-!i113 1
 R8
+!i113 1
+R9

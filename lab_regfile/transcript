@@ -20,59 +20,58 @@
 # 
 # ------ Compile Verilog Files --------------------------------------------------
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 18:47:21 on Oct 22,2019
+# Start time: 13:36:12 on Oct 25,2019
 # vlog -reportprogress 300 -novopt CSCE611_lab_regfile.sv alu.sv regfile.sv rpncalc.sv 
 # -- Compiling module CSCE611_lab_regfile
 # -- Compiling module alu
 # -- Compiling module regfile
 # -- Compiling module rpncalc
 # -- Compiling module stack
-# ** Warning: rpncalc.sv(111): (vlog-2244) Variable 'we' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(113): (vlog-2244) Variable 'we' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(112): (vlog-2244) Variable 'readaddr1' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(114): (vlog-2244) Variable 'readaddr1' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(113): (vlog-2244) Variable 'readaddr2' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(115): (vlog-2244) Variable 'readaddr2' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(114): (vlog-2244) Variable 'writeaddr' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(116): (vlog-2244) Variable 'writeaddr' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(115): (vlog-2244) Variable 'writedata' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(117): (vlog-2244) Variable 'writedata' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(117): (vlog-2244) Variable 'a' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(119): (vlog-2244) Variable 'a' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(118): (vlog-2244) Variable 'b' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(120): (vlog-2244) Variable 'b' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(119): (vlog-2244) Variable 'op' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(121): (vlog-2244) Variable 'op' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(120): (vlog-2244) Variable 'shamt' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(122): (vlog-2244) Variable 'shamt' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(121): (vlog-2244) Variable 'hi' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(123): (vlog-2244) Variable 'hi' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(122): (vlog-2244) Variable 'lo' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(124): (vlog-2244) Variable 'lo' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(123): (vlog-2244) Variable 'zero' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(125): (vlog-2244) Variable 'zero' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(124): (vlog-2244) Variable 'i' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(126): (vlog-2244) Variable 'i' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(126): (vlog-2244) Variable 'pop' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(128): (vlog-2244) Variable 'pop' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(127): (vlog-2244) Variable 'push' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(129): (vlog-2244) Variable 'push' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(129): (vlog-2244) Variable 'data_in' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(131): (vlog-2244) Variable 'data_in' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(130): (vlog-2244) Variable 'top' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(132): (vlog-2244) Variable 'top' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(131): (vlog-2244) Variable 'full' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(133): (vlog-2244) Variable 'full' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(132): (vlog-2244) Variable 'empty' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(134): (vlog-2244) Variable 'empty' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(135): (vlog-2244) Variable 'signal' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(137): (vlog-2244) Variable 'signal' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(136): (vlog-2244) Variable 'counter' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(138): (vlog-2244) Variable 'counter' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Error (suppressible): (vlog-12003) rpncalc.sv(90): Variable 'stack_top_ptr' written by continuous and procedural assignments. See rpncalc.sv(83). 
-# ** Error (suppressible): (vlog-12003) rpncalc.sv(94): Variable 'stack_top_ptr' written by continuous and procedural assignments. See rpncalc.sv(83). 
-# End time: 18:47:22 on Oct 22,2019, Elapsed time: 0:00:01
-# Errors: 2, Warnings: 21
+# ** Error: rpncalc.sv(212): (vlog-2110) Illegal reference to net "counter".
+# End time: 13:36:12 on Oct 25,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 21
 # ** Error: /usr/local/3rdparty/mentor/modelsim104b/modeltech/linux_x86_64/vlog failed.
 # Error in macro ./scripts/test.tcl line 8
 # /usr/local/3rdparty/mentor/modelsim104b/modeltech/linux_x86_64/vlog failed.

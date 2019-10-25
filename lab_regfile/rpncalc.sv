@@ -84,6 +84,7 @@ module stack (input clk,rst,pop,push,input [4:0] readaddr2, input [31:0] data_in
 	assign full = stack_ptr==6'd32 ? 1'd1 : 1'd0;
 	assign empty = stack_ptr==6'd0 ? 1'd1 : 1'd0;
 
+	/*
 	//To do: Adjust the pointer that points to the current top element in the stack.
 	always_comb begin
 		if (pop) begin
@@ -94,6 +95,7 @@ module stack (input clk,rst,pop,push,input [4:0] readaddr2, input [31:0] data_in
 			stack_top_ptr = stack_top_ptr + 1;
 		end
 	end //always_comb
+	*/
 
 	regfile stackregs(.clk(clk),
 			       .rst(rst), 
@@ -133,7 +135,7 @@ endmodule
 		static logic true = 1;
 		static logic false = 0;
 		logic signal = 0;
-		logic counter = 0;
+		logic [5:0] counter = 5'b0;
 		static logic [3:0] key_dly = 0;
 		static logic [3:0] key_dly2 = 0;
 	end
@@ -206,10 +208,12 @@ always_comb begin
 						//output [31:0] stack_top,output full,empty);
 		
 		//push No ALU code
-		push_only: op <= 1010;	//signal <= false; push <= true; pop <= false;
+		push_only: begin op <= 1010; shamt <= false; pop <= false; push <= true; 
+				signal <= false; counter = counter + 1; end
 	
 		//pop No ALU code.
-		pop_only: op <= 1010;	
+		pop_only: begin op <= 1010; shamt <= false;  
+				signal <= false; end
 			//signal <= false; 
 			//pop <= true; 
 			//push <= false; 
@@ -217,36 +221,47 @@ always_comb begin
 	
 		// arithmetic operations
 		//Add ALU 0100
-		add_op1: begin op <= 0100; shamt <= false; signal <= false; end
+		add_op1: begin op <= 0100; shamt <= false; signal <= false;
+				pop <= true; push <= false; end
 		//Sub ALU 0101
-		sub_op: begin op <= 0101; shamt <= false; signal <= false; end
+		sub_op: begin op <= 0101; shamt <= false; signal <= false;
+				pop <= true; push <= false;  end
 	
 		// mult unsigned ALU 0111
-		umult_op: begin op <= 0111; shamt <= false; signal <= false; end
+		umult_op: begin op <= 0111; shamt <= false; signal <= false;
+				pop <= true; push <= false;  end
 
 		//Pop top 2 and push second shifted left by topmost value ALU 1000
-		shiftL_op: begin op <= 1000; shamt <= b; signal <= false; end
+		shiftL_op: begin op <= 1000; shamt <= b; signal <= false;
+				pop <= true; push <= false;  end
 
 		//Pop top 2 second shifted right (logical) by topmost value ALU 1001
-		shiftR_op: begin op <= 1001; shamt <= b; signal <= false; end
+		shiftR_op: begin op <= 1001; shamt <= b; signal <= false;
+				pop <= true; push <= false;  end
 
 		//pop top 2 compare two, ALU 1100
-		comp_op: begin op <= 1100; shamt <= false; signal <= false; end
+		comp_op: begin op <= 1100; shamt <= false; signal <= false;
+				pop <= true; push <= false;  end
 
 		//pop top 2 bitwise AND ALU 0000
-		and1_op: begin op <= 0000; shamt <= false; signal <= false; end
+		and1_op: begin op <= 0000; shamt <= false; signal <= false;
+				pop <= true; push <= false;  end
 
 		//pop top 2 bitwise OR ALU 0001
-		or_op: begin op <= 0001; shamt <= false; signal <= false; end
+		or_op: begin op <= 0001; shamt <= false; signal <= false;
+				pop <= true; push <= false;  end
 
 		//pop top 2 bitwise NOR ALU 0010
-		nor_op: begin op <= 0010; shamt <= false; signal <= false; end
+		nor_op: begin op <= 0010; shamt <= false; signal <= false;
+				pop <= true; push <= false;  end
 
 		//pop top 2 bitwise XOR ALU 0011
-		xor_op: begin op <= 0011; shamt <= false; signal <= false; end
+		xor_op: begin op <= 0011; shamt <= false; signal <= false;
+				pop <= true; push <= false;  end
 
 		//pop top 2 values and push them back on in reverse order.
-		reves_op: begin op <= 1010; signal <= false; end
+		reves_op: begin op <= 1010; shamt <= false; signal <= false;
+				pop <= true; push <= false;  end
 
 	endcase //Ends the case statement.
 end //Always_comb block
