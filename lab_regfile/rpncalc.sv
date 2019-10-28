@@ -164,9 +164,9 @@ endmodule
 			.stack_top(a), .stack_sec(b), .full(full),.empty(empty));
 
 
-	assign top = a;
-	assign next = b;
-	assign counter = count;
+	//assign top = a;
+	//assign next = b;
+	//assign counter = count;
 
 /* don't forget to...
  *
