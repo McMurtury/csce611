@@ -32,6 +32,10 @@ add wave /rpncalc/key_dly2
 add wave /rpncalc/a
 add wave /rpncalc/b
 
+add wave /rpncalc/current_state
+add wave /rpncalc/next_state
+add wave /rpncalc/go
+add wave /rpncalc/count
 
 
 
@@ -48,20 +52,24 @@ force -freeze sim:/rpncalc/clk 1 0, 0 {50 ns} -r 100
 # -------------------------------------- #
 run    
 force val 16'hBEEF 
+
 run
 force rst 1        
 force mode 2'b00   
-force key 4'h0111   
+#force key 4'hf  
+force key 4'b1111
+
 run 
-force rst 0        
-force push 1       
+force rst 0 
+
 run
-#force push 0       
-#run
-#force key 4'hf    
-#run 500    
-#force key 4'hf     
-#run 300
+force go 1
+force key 4'b0111
+#force key_dly 4'b0111  
+     
+run 100
+#force key 4'b1111     
+run 500
 #force val 16'hDEAD 
 #force mode 2'b00   
 #force key 4'hf 

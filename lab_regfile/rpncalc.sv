@@ -69,11 +69,12 @@ module rpncalc (
 	logic signal;
 	logic [3:0] key_dly;
 	logic [3:0] key_dly2;
-	static logic [5:0] count;
+	logic [5:0] count;
+	logic go;
 
-  typedef enum logic [3:0] {idle,push_only,pop_only,add_op1,sub_op,umult_op,
-			    shiftL_op,shiftR_op,comp_op,and1_op,or_op,nor_op,xor_op,reves_op} state_type;
-  state_type current_state,next_state;
+  typedef enum logic [4:0] {idle, idle2,push_only,pop_only,add_op1,sub_op,umult_op,
+			    shiftL_op,shiftR_op,comp_op,and1_op,or_op,nor_op,xor_op,reves_op, reset} state_type;
+  	static state_type current_state,next_state;
 
 always_ff @(posedge clk) begin
 		opcode <= {mode, key};
@@ -126,8 +127,8 @@ endmodule
 		//logic [ ] counter = 0;
 		logic [31:0] a     = 0;
 		logic [31:0] b     = 0;
-		logic [5:0] op    = 0;
-		logic [31:0] shamt = 0;
+		logic [3:0] op    = 0;
+		logic [4:0] shamt = 0;
 		reg [31:0] hi = 0;
 		reg [31:0] lo = 0;
 		logic zero = 0;
@@ -147,8 +148,10 @@ endmodule
 		//logic counter = 5'b0;
 		static logic [3:0] key_dly = 0;
 		static logic [3:0] key_dly2 = 0;
-		static logic [5:0] count = 5'b0;
-
+		logic [5:0] count = 5'b0;
+		logic go = 0;
+		//next_state = idle; //default
+		//current_state = idle; //init and default
 
 		//top = 16'b0;
 		//next = 16'b0;
@@ -177,8 +180,24 @@ endmodule
  */
   always_ff @(posedge clk)begin
     	key_dly = key;
-    	key_dly2 = key_dly;
+    	//#100 key_dly2 = key_dly;
+	if(rst) begin
+		current_state = reset;
+		//next_state = idle;
+		
+	end
+	else begin
+		current_state = next_state;
+		//if (key_dly2 == 1111 && key_dly != key_dly2) begin
+		//	go = 1;
+		//end
+		//else go = 0;
+		
+	end
   end
+  
+  assign #120 key_dly2 = key_dly;
+  assign go = &key_dly2 & ~&key_dly;
 	
 always_comb begin
 	//static logic [5:0] count = 5'b0;
@@ -189,33 +208,73 @@ always_comb begin
 
 
    
-  assign go = &key_dly2 & ~&key_dly;
+
   
   //always_comb begin
     	//pop = 1'b0;
 	//push = 1'b0;
-	next_state = idle; //default
-	current_state = idle; //init and default
+	
 	//if(counter > 1) readaddr2 = readaddr2 + 1;
 
 	case (current_state)
 
 		//idle state
-		idle: begin if (go) begin 
-			if(mode == 2'b00 && key_dly == 4'b1110) next_state = add_op1;
-			if(mode == 2'b00 && key_dly == 4'b1111) next_state = sub_op;
-			if(mode == 2'b01 && key_dly == 4'b1100) next_state = umult_op;
-			if(mode == 2'b01 && key_dly == 4'b1101) next_state = shiftL_op;
-			if(mode == 2'b01 && key_dly == 4'b1110) next_state = shiftR_op;
-			if(mode == 2'b01 && key_dly == 4'b1111) next_state = comp_op;
-			if(mode == 2'b10 && key_dly == 4'b1100) next_state = and1_op;
-			if(mode == 2'b10 && key_dly == 4'b1101) next_state = or_op;
-			if(mode == 2'b10 && key_dly == 4'b1110) next_state = nor_op;
-			if(mode == 2'b10 && key_dly == 4'b1111) next_state = xor_op;
-			if(mode == 2'b11 && key_dly == 4'b1100) next_state = reves_op;
-			if(mode == 2'b00 && key_dly == 4'b1100) next_state = push_only;
-			if(mode == 2'b00 && key_dly == 4'b1101) next_state = pop_only;
+		idle: begin 
+			//count <= count + 1;
+			//next_state = idle2;
+			//if (go != 0) begin 
+				//count <= count + 1;
+				if(mode == 2'b00 && key_dly == 4'b0001) next_state = push_only;
+				//else if(mode == 2'b00 && key_dly == 4'h1) next_state = push_only;
+				else if(mode == 2'b00 && key_dly == 4'b0111) next_state = push_only;
+				//else if(mode == 2'b00 && key_dly == 1'h7) next_state = push_only;
+				//else if(mode == 2'h0 && key_dly == 4'h7) next_state = push_only;
+				//else if(mode == 1'h0 && key_dly == 1'h7) next_state = push_only;
+				//else if(mode == 2'b00 && key_dly == 4'b1110) next_state = add_op1;
+				//else if(mode == 2'b00 && key_dly == 4'b1111) next_state = sub_op;
+				else if(mode == 2'b01 && key_dly == 4'b1100) next_state = umult_op;
+				else if(mode == 2'b01 && key_dly == 4'b1101) next_state = shiftL_op;
+				else if(mode == 2'b01 && key_dly == 4'b1110) next_state = shiftR_op;
+				else if(mode == 2'b01 && key_dly == 4'b1111) next_state = comp_op;
+				else if(mode == 2'b10 && key_dly == 4'b1100) next_state = and1_op;
+				else if(mode == 2'b10 && key_dly == 4'b1101) next_state = or_op;
+				else if(mode == 2'b10 && key_dly == 4'b1110) next_state = nor_op;
+				else if(mode == 2'b10 && key_dly == 4'b1111) next_state = xor_op;
+				else if(mode == 2'b11 && key_dly == 4'b1100) next_state = reves_op;
+
+				else if(mode == 2'b00 && key_dly == 4'b1101) next_state = pop_only;
+				else next_state = idle2;
+			//end
+			if (!go) begin
+				count <= count + 1;
 			end
+			
+		end
+		
+		//idle state
+		idle2: begin 
+			next_state = idle;
+			if (go == 1) begin 
+				count <= count + 1;
+				if(mode == 2'b00 && key_dly == 4'b0001) next_state = push_only;
+				else if(mode == 2'b00 && key_dly == 4'h1) next_state = push_only;
+				else if(mode == 2'b00 && key_dly == 4'b0111) next_state = push_only;
+				else if(mode == 2'b00 && key_dly == 4'h7) next_state = push_only;
+				else if(mode == 2'b00 && key_dly == 4'b1110) next_state = add_op1;
+				else if(mode == 2'b00 && key_dly == 4'b1111) next_state = sub_op;
+				else if(mode == 2'b01 && key_dly == 4'b1100) next_state = umult_op;
+				else if(mode == 2'b01 && key_dly == 4'b1101) next_state = shiftL_op;
+				else if(mode == 2'b01 && key_dly == 4'b1110) next_state = shiftR_op;
+				else if(mode == 2'b01 && key_dly == 4'b1111) next_state = comp_op;
+				else if(mode == 2'b10 && key_dly == 4'b1100) next_state = and1_op;
+				else if(mode == 2'b10 && key_dly == 4'b1101) next_state = or_op;
+				else if(mode == 2'b10 && key_dly == 4'b1110) next_state = nor_op;
+				else if(mode == 2'b10 && key_dly == 4'b1111) next_state = xor_op;
+				else if(mode == 2'b11 && key_dly == 4'b1100) next_state = reves_op;
+
+				if(mode == 2'b00 && key_dly == 4'b1101) next_state = pop_only;
+			end
+			
 		end
 
 		//Reset No ALU code.
@@ -229,11 +288,11 @@ always_comb begin
 		
 		//push No ALU code
 		push_only: begin op <= 1010; shamt <= false; pop <= false; push <= true; 
-				signal <= false; count = count + 1; end
+				signal <= false; count <= count + 1; next_state = idle; end
 	
 		//pop No ALU code.
 		pop_only: begin op <= 1010; shamt <= false;  
-				signal <= false; count = count - 1; end
+				signal <= false; count <= count - 1; next_state = idle; end
 			//signal <= false; 
 			//pop <= true; 
 			//push <= false; 
@@ -242,68 +301,71 @@ always_comb begin
 		// arithmetic operations
 		//Add ALU 0100
 		add_op1: begin op <= 0100; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count - 1; 
-				readaddr2 = count - 1;
+				pop <= true; push <= false; count <= count - 1; 
+				readaddr2 <= count - 1;
 				data_in <= lo;
 				end
 		//Sub ALU 0101
 		sub_op: begin op <= 0101; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 	
 		// mult unsigned ALU 0111
 		umult_op: begin op <= 0111; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 
 		//Pop top 2 and push second shifted left by topmost value ALU 1000
 		shiftL_op: begin op <= 1000; shamt <= b; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 
 		//Pop top 2 second shifted right (logical) by topmost value ALU 1001
 		shiftR_op: begin op <= 1001; shamt <= b; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 
 		//pop top 2 compare two, ALU 1100
 		comp_op: begin op <= 1100; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 
 		//pop top 2 bitwise AND ALU 0000
 		and1_op: begin op <= 0000; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 
 		//pop top 2 bitwise OR ALU 0001
 		or_op: begin op <= 0001; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 
 		//pop top 2 bitwise NOR ALU 0010
 		nor_op: begin op <= 0010; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 		//pop top 2 bitwise XOR ALU 0011
 		xor_op: begin op <= 0011; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count - 1;  
+				pop <= true; push <= false; count <= count - 1;  
 
 				end
 
 		//pop top 2 values and push them back on in reverse order.
 		reves_op: begin op <= 1010; shamt <= false; signal <= false;
-				pop <= true; push <= false; count = count;  
+				pop <= true; push <= false; count <= count;  
 
 				end
+		reset: begin next_state = idle; count = 5'b0; end
+
+		default: next_state = idle;
 
 	endcase //Ends the case statement.
 end //Always_comb block

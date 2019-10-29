@@ -20,7 +20,7 @@
 # 
 # ------ Compile Verilog Files --------------------------------------------------
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:13:28 on Oct 25,2019
+# Start time: 18:18:39 on Oct 29,2019
 # vlog -reportprogress 300 -novopt CSCE611_lab_regfile.sv alu.sv csce611_regfile_testbench.sv oldtestbench.sv regfile.sv rpncalc.sv testbench.sv 
 # -- Compiling module CSCE611_lab_regfile
 # -- Compiling module alu
@@ -30,45 +30,49 @@
 # -- Compiling module regfile
 # -- Compiling module rpncalc
 # -- Compiling module stack
-# ** Warning: rpncalc.sv(121): (vlog-2244) Variable 'we' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(122): (vlog-2244) Variable 'we' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(122): (vlog-2244) Variable 'readaddr1' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(123): (vlog-2244) Variable 'readaddr1' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(123): (vlog-2244) Variable 'readaddr2' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(124): (vlog-2244) Variable 'readaddr2' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(124): (vlog-2244) Variable 'writeaddr' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(125): (vlog-2244) Variable 'writeaddr' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(125): (vlog-2244) Variable 'writedata' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(126): (vlog-2244) Variable 'writedata' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(127): (vlog-2244) Variable 'a' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(128): (vlog-2244) Variable 'a' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(128): (vlog-2244) Variable 'b' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(129): (vlog-2244) Variable 'b' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(129): (vlog-2244) Variable 'op' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(130): (vlog-2244) Variable 'op' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(130): (vlog-2244) Variable 'shamt' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(131): (vlog-2244) Variable 'shamt' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(131): (vlog-2244) Variable 'hi' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(132): (vlog-2244) Variable 'hi' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(132): (vlog-2244) Variable 'lo' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(133): (vlog-2244) Variable 'lo' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(133): (vlog-2244) Variable 'zero' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(134): (vlog-2244) Variable 'zero' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(134): (vlog-2244) Variable 'i' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(135): (vlog-2244) Variable 'i' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(136): (vlog-2244) Variable 'pop' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(137): (vlog-2244) Variable 'pop' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(137): (vlog-2244) Variable 'push' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(138): (vlog-2244) Variable 'push' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(139): (vlog-2244) Variable 'data_in' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(140): (vlog-2244) Variable 'data_in' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(140): (vlog-2244) Variable 'top' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(141): (vlog-2244) Variable 'top' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(141): (vlog-2244) Variable 'full' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(142): (vlog-2244) Variable 'full' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(142): (vlog-2244) Variable 'empty' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(143): (vlog-2244) Variable 'empty' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
-# ** Warning: rpncalc.sv(145): (vlog-2244) Variable 'signal' is implicitly static. You must either explicitly declare it as static or automatic
+# ** Warning: rpncalc.sv(146): (vlog-2244) Variable 'signal' is implicitly static. You must either explicitly declare it as static or automatic
+# or remove the initialization in the declaration of variable.
+# ** Warning: rpncalc.sv(151): (vlog-2244) Variable 'count' is implicitly static. You must either explicitly declare it as static or automatic
+# or remove the initialization in the declaration of variable.
+# ** Warning: rpncalc.sv(152): (vlog-2244) Variable 'go' is implicitly static. You must either explicitly declare it as static or automatic
 # or remove the initialization in the declaration of variable.
 # ** Warning: testbench.sv(1): (vlog-2275) 'CSCE611_regfile_testbench' already exists and will be overwritten.
 # -- Compiling module CSCE611_regfile_testbench
@@ -76,19 +80,19 @@
 # Top level modules:
 # 	CSCE611_lab_regfile
 # 	CSCE611_regfile_testbench
-# End time: 17:13:28 on Oct 25,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 22
+# End time: 18:18:39 on Oct 29,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 24
 # ------ Load Design ------------------------------------------------------------
 # vsim -novopt work.rpncalc 
-# Start time: 17:13:28 on Oct 25,2019
+# Start time: 18:18:39 on Oct 29,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.rpncalc
 # Loading work.alu
 # Loading work.regfile
-# ** Warning: (vsim-3015) rpncalc.sv(161): [PCDPC] - Port size (4) does not match connection size (6) for port 'op'. The port definition is at: alu.sv(1).
+# ** Warning: (vsim-3015) rpncalc.sv(164): [PCDPC] - Port size (4) does not match connection size (6) for port 'op'. The port definition is at: alu.sv(1).
 #    Time: 0 ns  Iteration: 0  Instance: /rpncalc/dut File: alu.sv
-# ** Warning: (vsim-3015) rpncalc.sv(161): [PCDPC] - Port size (5) does not match connection size (32) for port 'shamt'. The port definition is at: alu.sv(2).
+# ** Warning: (vsim-3015) rpncalc.sv(164): [PCDPC] - Port size (5) does not match connection size (32) for port 'shamt'. The port definition is at: alu.sv(2).
 #    Time: 0 ns  Iteration: 0  Instance: /rpncalc/dut File: alu.sv
 # ------ Setup Waves ------------------------------------------------------------
 # ------ Simulate ---------------------------------------------------------------
@@ -107,7 +111,7 @@
 # do ./scripts/test.tcl
 do sim.do
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# ** Warning: (vsim-3015) rpncalc.sv(161): [PCDPC] - Port size (4) does not match connection size (6) for port 'op'. The port definition is at: alu.sv(1).
+# ** Warning: (vsim-3015) rpncalc.sv(164): [PCDPC] - Port size (4) does not match connection size (6) for port 'op'. The port definition is at: alu.sv(1).
 #    Time: 0 ns  Iteration: 0  Instance: /rpncalc/dut File: alu.sv
-# ** Warning: (vsim-3015) rpncalc.sv(161): [PCDPC] - Port size (5) does not match connection size (32) for port 'shamt'. The port definition is at: alu.sv(2).
+# ** Warning: (vsim-3015) rpncalc.sv(164): [PCDPC] - Port size (5) does not match connection size (32) for port 'shamt'. The port definition is at: alu.sv(2).
 #    Time: 0 ns  Iteration: 0  Instance: /rpncalc/dut File: alu.sv
