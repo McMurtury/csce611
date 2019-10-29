@@ -26,8 +26,12 @@ always @(posedge clk) begin
 	if((we)) mem[writeaddr] <=writedata;
 end
 
-assign readdata1 = readaddr1 == writeaddr && we ? writedata : mem[readaddr1];
-assign readdata2 = readaddr2 == writeaddr && we ? writedata : mem[readaddr2];
+assign readdata1 = readaddr1 == 5'b0 ? 32'b0:
+		   readaddr1 == writeaddr && we ? writedata : 
+	           mem[readaddr1];
+assign readdata2 = readaddr2 == 5'b0 ? 32'b0 :
+		   readaddr2 == writeaddr && we ? writedata :
+	           mem[readaddr2];
 
 
 
