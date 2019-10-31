@@ -287,8 +287,8 @@ always_comb begin
 						//output [31:0] stack_top,output full,empty);
 		
 		//push No ALU code
-		push_only: begin op <= 1010; shamt <= false; pop <= false; push <= true; 
-				signal <= false; count <= count + 1; next_state = idle; end
+		push_only: begin count <= count + 1; end//op <= 1010; shamt <= false; pop <= false; push <= true; 
+				//signal <= false; count <= count + 1; next_state = idle; end
 	
 		//pop No ALU code.
 		pop_only: begin op <= 1010; shamt <= false;  

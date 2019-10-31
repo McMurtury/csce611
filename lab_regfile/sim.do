@@ -13,7 +13,7 @@ vsim -novopt work.rpncalc
 # -------------------------------------- #
 # --- Adding wave forms automatically -- # 
 # -------------------------------------- #
-add wave /rpncalc/shamt
+#add wave /rpncalc/shamt
 add wave /rpncalc/clk
 add wave /rpncalc/rst
 add wave /rpncalc/mode
@@ -22,7 +22,7 @@ add wave /rpncalc/val
 
 add wave /rpncalc/top
 add wave /rpncalc/next
-add wave /rpncalc/counter
+#add wave /rpncalc/counter
 add wave /rpncalc/pop
 add wave /rpncalc/push
 
@@ -36,6 +36,7 @@ add wave /rpncalc/current_state
 add wave /rpncalc/next_state
 add wave /rpncalc/go
 add wave /rpncalc/count
+add wave /rpncalc/opcode
 
 
 
@@ -57,14 +58,14 @@ run
 force rst 1        
 force mode 2'b00   
 #force key 4'hf  
-force key 4'b1111
+force key 4'hf
 
 run 
 force rst 0 
 
 run
-force go 1
-force key 4'b0111
+#force go 1
+force key 4'h0111
 #force key_dly 4'b0111  
      
 run 100
