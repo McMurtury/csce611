@@ -1,0 +1,77 @@
+	.text
+	li	$2,429496730	# regs(2) <= 0.1
+	li	$3,10		# regs(3) <= 10
+	li	$4,23456789	# user input (replace with sra)
+	
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$6,4
+	or	$6,$6,$5
+
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$6,4
+	or	$6,$6,$5
+
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$6,4
+	or	$6,$6,$5
+
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$6,4
+	or	$6,$6,$5
+
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$6,4
+	or	$6,$6,$5
+
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$6,4
+	or	$6,$6,$5
+
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$6,4
+	or	$6,$6,$5
+
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$6,4
+	or	$6,$6,$5
+				# insert srl here to output register 6 to hex displays

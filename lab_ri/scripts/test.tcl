@@ -7,9 +7,9 @@ echo ""
 echo "------ Compile Verilog Files --------------------------------------------------"
 vlog -novopt *.sv
 echo "------ Load Design ------------------------------------------------------------"
-vsim -novopt work.CSCE611_ri_testbench
+vsim -novopt work.cpu
 echo "------ Setup Waves ------------------------------------------------------------"
-add wave -r /CSCE611_ri_testbench/*
+add wave -r /cpu/*
 echo "------ Simulate ---------------------------------------------------------------"
 run 50000
 # make sure the transcript window is visible
