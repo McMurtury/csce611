@@ -277,3 +277,37 @@ do sim.do
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 1785 ns
+do sim.do
+# Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
+# Start time: 16:22:53 on Nov 01,2019
+# vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
+# -- Compiling module alu
+# -- Compiling module cpu
+# -- Compiling module regfile
+# -- Compiling module CSCE611_ri_testbench
+# 
+# Top level modules:
+# 	cpu
+# 	CSCE611_ri_testbench
+# End time: 16:22:53 on Nov 01,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 16:22:53 on Nov 01,2019, Elapsed time: 0:06:54
+# Errors: 0, Warnings: 4
+# vsim -novopt work.cpu 
+# Start time: 16:22:53 on Nov 01,2019
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# Loading sv_std.std
+# Loading work.cpu
+# Loading work.regfile
+# Loading work.alu
+# ** Warning: (vsim-3017) cpu.sv(46): [TFMPC] - Too few port connections. Expected 9, found 8.
+#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
+# ** Warning: (vsim-3015) cpu.sv(46): [PCDPC] - Port size (5) does not match connection size (6) for port 'writeaddr'. The port definition is at: regfile.sv(12).
+#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
+# ** Warning: (vsim-3722) cpu.sv(46): [TFMPC] - Missing connection for port 'rst'.
+# .main_pane.transcript.interior.cs.body.t
+# .main_pane.wave.interior.cs.body.pw.wf
+# 0 ns
+# 3360 ns
+# End time: 16:24:17 on Nov 01,2019, Elapsed time: 0:01:24
+# Errors: 0, Warnings: 4

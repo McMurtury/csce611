@@ -37,7 +37,7 @@ force rst 1
 run
 force rst 0
 run
-run 1500
+run 3000
 #force val 16'hBEEF 
 # ------------------------------------- #
 
