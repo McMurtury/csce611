@@ -91,7 +91,9 @@ module cpu (
 			regwrite_WB <= 1'b0;
 		end else begin
 			regwrite_WB <= regwrite_EX;
-			writeaddr_WB <= rdrt_EX == 1'b0 ?  instruction_EX[15:11] : instruction_EX[20:16];
+			if (rdrt_EX == 1'b0) writeaddr_WB <= instruction_EX[15:11];
+			else if (rdrt_EX == 1'b1) writeaddr_WB <= instruction_EX[20:16];
+			//writeaddr_WB <= rdrt_EX == 1'b0 ?  instruction_EX[15:11] : instruction_EX[20:16];
 			if(lo_CD == 2'b0) lo_WB <= lo_EX;
 			else if (lo_CD == 2'b1) lo_WB <= hi_EX;
 			else if (lo_CD == 2'b10) lo_WB <= lo_EX;
@@ -132,61 +134,64 @@ module cpu (
 
 
 		if(~stall_EX) begin
-			//r-type instructions
-			if (instruction_EX[5:0] == 6'b100000 || 
-				instruction_EX[5:0] == 6'b100001) begin //add, addu
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b100010 ||
-					instruction_EX[5:0] == 6'b100011) begin//sub, subu
-				op_EX = 4'b0101;
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b011000 ||
-					instruction_EX[5:0] == 6'b011001) begin//mult, multu
-				op_EX = 4'b0110;
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b100100) begin//and
-				op_EX = 4'b0000;
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b100101) begin//or
-				op_EX = 4'b0001;
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b100110) begin//xor
-				op_EX = 4'b0011;
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b100111) begin//nor
-				op_EX = 4'b0010;
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b000000) begin//sll
-				op_EX = 4'b1000;
-				regwrite_EX <= 1'b1;
-				shamt_EX <= instruction_EX[10:6];
-			end else if (instruction_EX[5:0] == 6'b000010) begin//srl
-				op_EX = 4'b0111;
-				regwrite_EX <= 1'b1;
-				shamt_EX <= instruction_EX[10:6];
-			end else if (instruction_EX[5:0] == 6'b000011) begin//sra
-				op_EX = 4'b101X;
-				regwrite_EX <= 1'b1;
-				shamt_EX <= instruction_EX[10:6];
-			end else if (instruction_EX[5:0] == 6'b101010) begin//slt
-				op_EX = 4'b1100;
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b101011) begin//sltu
-				op_EX = 4'b11XX;
-				regwrite_EX <= 1'b1;
-			end else if (instruction_EX[5:0] == 6'b010000) begin//mfhi
-				regwrite_EX <= 1'b1;
-				rdrt_EX <= 1'b1;
-				lo_CD = 2'b1;
-			end else if (instruction_EX[5:0] == 6'b010010) begin//mflo
-				regwrite_EX <= 1'b1;
-				rdrt_EX <= 1'b1;
-				lo_CD = 2'b10;
-			end else if (instruction_EX[31:0] == 32'b0) begin//nop
-				stall_FETCH <= 1;
+			if(instruction_EX[31:26] == 6'b0) begin
+				//r-type instructions
+				if (instruction_EX[5:0] == 6'b100000 || 
+					instruction_EX[5:0] == 6'b100001) begin //add, addu
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b100010 ||
+						instruction_EX[5:0] == 6'b100011) begin//sub, subu
+					op_EX = 4'b0101;
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b011000 ||
+						instruction_EX[5:0] == 6'b011001) begin//mult, multu
+					op_EX = 4'b0110;
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b100100) begin//and
+					op_EX = 4'b0000;
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b100101) begin//or
+					op_EX = 4'b0001;
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b100110) begin//xor
+					op_EX = 4'b0011;
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b100111) begin//nor
+					op_EX = 4'b0010;
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b000000) begin//sll
+					op_EX = 4'b1000;
+					regwrite_EX <= 1'b1;
+					shamt_EX <= instruction_EX[10:6];
+				end else if (instruction_EX[5:0] == 6'b000010) begin//srl
+					op_EX = 4'b0111;
+					regwrite_EX <= 1'b1;
+					shamt_EX <= instruction_EX[10:6];
+				end else if (instruction_EX[5:0] == 6'b000011) begin//sra
+					op_EX = 4'b101X;
+					regwrite_EX <= 1'b1;
+					shamt_EX <= instruction_EX[10:6];
+				end else if (instruction_EX[5:0] == 6'b101010) begin//slt
+					op_EX = 4'b1100;
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b101011) begin//sltu
+					op_EX = 4'b11XX;
+					regwrite_EX <= 1'b1;
+				end else if (instruction_EX[5:0] == 6'b010000) begin//mfhi
+					regwrite_EX <= 1'b1;
+					rdrt_EX <= 1'b1;
+					lo_CD = 2'b1;
+				end else if (instruction_EX[5:0] == 6'b010010) begin//mflo
+					regwrite_EX <= 1'b1;
+					rdrt_EX <= 1'b1;
+					lo_CD = 2'b10;
+				end else if (instruction_EX[31:0] == 32'b0) begin//nop
+					stall_FETCH <= 1;
+				end 
+
 			//i-types instructions
-			//addi, addiu
-			end else if (instruction_EX[31:26]==6'b001000 ||
+			//addi, addiu			
+/*end of if state*/	end else if (instruction_EX[31:26]==6'b001000 ||
 				 instruction_EX[31:26]==6'b001001) begin
 					
 					regwrite_EX = 1'b1;
