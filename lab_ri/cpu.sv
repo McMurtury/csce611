@@ -50,11 +50,16 @@ module cpu (
 	end
 
 	//alu mux
-	assign B_EX = alu_src_EX == 2'b0 ? readdata2_EX :
+	always_ff @(posedge clk, posedge rst) begin
+		if (alu_src_EX == 2'b0) B_EX <= readdata2_EX;
+		else if (alu_src_EX == 2'b1) B_EX <= {{16{instruction_EX[15]}},instruction_EX[15:0]};
+		else B_EX <= {16'b0, instruction_EX[15:0]};
+	end
+	/*assign B_EX = alu_src_EX == 2'b0 ? readdata2_EX :
 		      alu_src_EX == 2'b1 ?
 		      {{16{instruction_EX[15]}},instruction_EX[15:0]} :
 		      {16'b0, instruction_EX[15:0]};
-
+	*/
 
 	//pc control
 	logic [1:0] pc_src_EX;
@@ -96,8 +101,14 @@ module cpu (
 			//writeaddr_WB <= rdrt_EX == 1'b0 ?  instruction_EX[15:11] : instruction_EX[20:16];
 			if(lo_CD == 2'b0) lo_WB <= lo_EX;
 			else if (lo_CD == 2'b1) lo_WB <= hi_EX;
-			else if (lo_CD == 2'b10) lo_WB <= lo_EX;
+			//else if (lo_CD == 2'b10) lo_WB <= lo_EX;
 		end
+	end
+	//for lo_EX
+	always_ff @(posedge clk,posedge rst) begin
+			if(lo_CD == 2'b0) lo_WB <= lo_EX;
+			else if (lo_CD == 2'b1) lo_WB <= hi_EX;
+			//else if (lo_CD == 2'b10) lo_WB <= lo_EX;
 	end
 
 	regfile myregfile (.clk(clk),
@@ -128,10 +139,10 @@ module cpu (
 		stall_FETCH = 1'b0;
 		GPIO_out_en = 1'b0;
 		op_EX = 4'b0100;
-		regwrite_EX <= 1'b0;
+		//regwrite_EX <= 1'b0;
 		shamt_EX <= 5'bXXXXX;
 		lo_CD = 2'b0;
-
+		if(rst == 1) regwrite_EX <= 1'b0;
 
 		if(~stall_EX) begin
 			if(instruction_EX[31:26] == 6'b0) begin
@@ -187,6 +198,7 @@ module cpu (
 					lo_CD = 2'b10;
 				end else if (instruction_EX[31:0] == 32'b0) begin//nop
 					stall_FETCH <= 1;
+					regwrite_EX <= 1'b0;
 				end 
 
 			//i-types instructions
@@ -213,6 +225,7 @@ module cpu (
 			//bne
 			end else if (instruction_EX[31:26]==6'b000101) begin
 					op_EX = 4'b0101; // sub
+					regwrite_EX <= 1'b0;
 					if (~zero_EX) begin
 						stall_FETCH = 1'b1;
 						pc_src_EX = 2'b1;
@@ -222,6 +235,7 @@ module cpu (
 						instruction_EX[5:0]==6'b000010 &&
 						instruction_EX[10:6]==5'b0) begin
 						GPIO_out_en = 1'b1;
+						regwrite_EX <= 1'b0;
 			end
 		end
 	end
