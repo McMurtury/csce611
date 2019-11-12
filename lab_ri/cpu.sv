@@ -50,16 +50,16 @@ module cpu (
 	end
 
 	//alu mux
-	always_ff @(posedge clk, posedge rst) begin
+	/*always_comb begin
 		if (alu_src_EX == 2'b0) B_EX <= readdata2_EX;
 		else if (alu_src_EX == 2'b1) B_EX <= {{16{instruction_EX[15]}},instruction_EX[15:0]};
 		else B_EX <= {16'b0, instruction_EX[15:0]};
-	end
-	/*assign B_EX = alu_src_EX == 2'b0 ? readdata2_EX :
+	end*/
+	assign B_EX = alu_src_EX == 2'b0 ? readdata2_EX :
 		      alu_src_EX == 2'b1 ?
 		      {{16{instruction_EX[15]}},instruction_EX[15:0]} :
 		      {16'b0, instruction_EX[15:0]};
-	*/
+	
 
 	//pc control
 	logic [1:0] pc_src_EX;
@@ -99,8 +99,8 @@ module cpu (
 			if (rdrt_EX == 1'b0) writeaddr_WB <= instruction_EX[15:11];
 			else if (rdrt_EX == 1'b1) writeaddr_WB <= instruction_EX[20:16];
 			//writeaddr_WB <= rdrt_EX == 1'b0 ?  instruction_EX[15:11] : instruction_EX[20:16];
-			if(lo_CD == 2'b0) lo_WB <= lo_EX;
-			else if (lo_CD == 2'b1) lo_WB <= hi_EX;
+			//if(lo_CD == 2'b0) lo_WB <= lo_EX;
+			//else if (lo_CD == 2'b1) lo_WB <= hi_EX;
 			//else if (lo_CD == 2'b10) lo_WB <= lo_EX;
 		end
 	end
@@ -140,65 +140,65 @@ module cpu (
 		GPIO_out_en = 1'b0;
 		op_EX = 4'b0100;
 		//regwrite_EX <= 1'b0;
-		shamt_EX <= 5'bXXXXX;
+		shamt_EX = 5'bXXXXX;
 		lo_CD = 2'b0;
-		if(rst == 1) regwrite_EX <= 1'b0;
+		if(rst == 1) regwrite_EX = 1'b0;
 
 		if(~stall_EX) begin
 			if(instruction_EX[31:26] == 6'b0) begin
 				//r-type instructions
 				if (instruction_EX[5:0] == 6'b100000 || 
 					instruction_EX[5:0] == 6'b100001) begin //add, addu
-					regwrite_EX <= 1'b1;
+					regwrite_EX = 1'b1;
 				end else if (instruction_EX[5:0] == 6'b100010 ||
 						instruction_EX[5:0] == 6'b100011) begin//sub, subu
 					op_EX = 4'b0101;
-					regwrite_EX <= 1'b1;
+					regwrite_EX = 1'b1;
 				end else if (instruction_EX[5:0] == 6'b011000 ||
 						instruction_EX[5:0] == 6'b011001) begin//mult, multu
 					op_EX = 4'b0110;
-					regwrite_EX <= 1'b1;
+					regwrite_EX = 1'b1;
 				end else if (instruction_EX[5:0] == 6'b100100) begin//and
 					op_EX = 4'b0000;
-					regwrite_EX <= 1'b1;
+					regwrite_EX = 1'b1;
 				end else if (instruction_EX[5:0] == 6'b100101) begin//or
 					op_EX = 4'b0001;
-					regwrite_EX <= 1'b1;
+					regwrite_EX = 1'b1;
 				end else if (instruction_EX[5:0] == 6'b100110) begin//xor
 					op_EX = 4'b0011;
-					regwrite_EX <= 1'b1;
+					regwrite_EX = 1'b1;
 				end else if (instruction_EX[5:0] == 6'b100111) begin//nor
 					op_EX = 4'b0010;
-					regwrite_EX <= 1'b1;
+					regwrite_EX = 1'b1;
 				end else if (instruction_EX[5:0] == 6'b000000) begin//sll
 					op_EX = 4'b1000;
 					regwrite_EX <= 1'b1;
-					shamt_EX <= instruction_EX[10:6];
+					shamt_EX = instruction_EX[10:6];
 				end else if (instruction_EX[5:0] == 6'b000010) begin//srl
 					op_EX = 4'b0111;
-					regwrite_EX <= 1'b1;
-					shamt_EX <= instruction_EX[10:6];
+					regwrite_EX = 1'b1;
+					shamt_EX = instruction_EX[10:6];
 				end else if (instruction_EX[5:0] == 6'b000011) begin//sra
 					op_EX = 4'b101X;
-					regwrite_EX <= 1'b1;
-					shamt_EX <= instruction_EX[10:6];
+					regwrite_EX = 1'b1;
+					shamt_EX = instruction_EX[10:6];
 				end else if (instruction_EX[5:0] == 6'b101010) begin//slt
 					op_EX = 4'b1100;
-					regwrite_EX <= 1'b1;
+					regwrite_EX = 1'b1;
 				end else if (instruction_EX[5:0] == 6'b101011) begin//sltu
 					op_EX = 4'b11XX;
 					regwrite_EX <= 1'b1;
 				end else if (instruction_EX[5:0] == 6'b010000) begin//mfhi
 					regwrite_EX <= 1'b1;
-					rdrt_EX <= 1'b1;
+					rdrt_EX = 1'b0;
 					lo_CD = 2'b1;
 				end else if (instruction_EX[5:0] == 6'b010010) begin//mflo
 					regwrite_EX <= 1'b1;
-					rdrt_EX <= 1'b1;
+					rdrt_EX = 1'b0;
 					lo_CD = 2'b10;
 				end else if (instruction_EX[31:0] == 32'b0) begin//nop
-					stall_FETCH <= 1;
-					regwrite_EX <= 1'b0;
+					stall_FETCH = 1;
+					regwrite_EX = 1'b0;
 				end 
 
 			//i-types instructions
@@ -208,7 +208,7 @@ module cpu (
 					
 					regwrite_EX = 1'b1;
 					alu_src_EX = 2'b10;
-					rdrt_EX <= 1'b0;
+					rdrt_EX = 1'b0;
 			//lui
 			end else if (instruction_EX[31:26]==6'b001111) begin
 					op_EX = 4'b1000;
@@ -225,7 +225,7 @@ module cpu (
 			//bne
 			end else if (instruction_EX[31:26]==6'b000101) begin
 					op_EX = 4'b0101; // sub
-					regwrite_EX <= 1'b0;
+					regwrite_EX = 1'b0;
 					if (~zero_EX) begin
 						stall_FETCH = 1'b1;
 						pc_src_EX = 2'b1;
@@ -235,7 +235,7 @@ module cpu (
 						instruction_EX[5:0]==6'b000010 &&
 						instruction_EX[10:6]==5'b0) begin
 						GPIO_out_en = 1'b1;
-						regwrite_EX <= 1'b0;
+						regwrite_EX = 1'b0;
 			end
 		end
 	end

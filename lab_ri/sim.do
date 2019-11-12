@@ -28,6 +28,7 @@ add wave /cpu/regwrite_WB
 add wave /cpu/regwrite_EX
 add wave /cpu/writeaddr_WB
 add wave /cpu/stall_EX
+add wave /cpu/shamt_EX
 add wave /cpu/lo_WB
 add wave /cpu/lo_CD
 add wave /cpu/lo_EX
@@ -35,6 +36,7 @@ add wave /cpu/A_EX
 add wave /cpu/B_EX
 add wave /cpu/zero_EX
 add wave /cpu/alu_src_EX
+add wave -r /cpu/myalu/*
 # -------------------------------------- #
 # ---- This is where testing starts ---- # 
 # -------------------------------------- #
@@ -42,10 +44,12 @@ add wave /cpu/alu_src_EX
 # -------------------------------------- #
 # - Sequence to push values onto stack - # 
 # -------------------------------------- #
-force rst 1
-run
-force rst 0
-run
+force /cpu/rst 0
+run 1
+force /cpu/rst 1
+run 1
+force /cpu/rst 0
+run 1
 run 10000
 # ------------------------------------- #
 

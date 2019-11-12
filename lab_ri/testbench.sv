@@ -10,6 +10,8 @@ module CSCE611_ri_testbench(
 
 	output [7:0] counter
 );
+
+/*
 	logic [1:0] mode;
 	logic [3:0] key;
 	logic rst;
@@ -23,7 +25,7 @@ module CSCE611_ri_testbench(
 	end
 
 	rpncalc test(.clk(clk), .rst(rst), .mode(mode), .key(key), .val(val), .top(top), .next(next), .counter(counter));
-	
+*/	
 
 
 endmodule

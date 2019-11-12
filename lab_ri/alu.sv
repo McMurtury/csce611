@@ -7,7 +7,8 @@ wire [32:0] diff = {1'b0,a}+{1'b0,~b+32'b1};
 
 assign zero = lo==32'd0 ? 1'b1 : 1'b0;
 
-always @(*) begin
+//always @(*) begin
+always_comb begin
 	hi = 32'b0;
 	lo = 32'b0;
 
