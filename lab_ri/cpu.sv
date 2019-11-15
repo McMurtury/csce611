@@ -47,7 +47,7 @@ module cpu (
 
 	//read file
 	initial begin
-		$readmemh("program.dat", instruction_memory);
+		$readmemh("test.dat", instruction_memory);
 	end
 
 	//alu mux
@@ -57,8 +57,7 @@ module cpu (
 		else B_EX <= {16'b0, instruction_EX[15:0]};
 	end*/
 	assign B_EX = alu_src_EX == 2'b0 ? readdata2_EX :
-		      alu_src_EX == 2'b1 ?
-		      {{16{instruction_EX[15]}},instruction_EX[15:0]} :
+		      alu_src_EX == 2'b1 ? {{16{instruction_EX[15]}},instruction_EX[15:0]} :
 		      alu_src_EX == 2'b10 ? lo_WB :
 		      {16'b0, instruction_EX[15:0]};
 	
@@ -153,7 +152,7 @@ module cpu (
 				if (instruction_EX[5:0] == 6'b100000 || 
 					instruction_EX[5:0] == 6'b100001) begin //add, addu
 					regwrite_EX = 1'b1;
-					rdrt_EX = 1'b1;
+					//rdrt_EX = 1'b1;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
@@ -161,7 +160,7 @@ module cpu (
 						instruction_EX[5:0] == 6'b100011) begin//sub, subu
 					op_EX = 4'b0101;
 					regwrite_EX = 1'b1;
-					rdrt_EX = 1'b1;
+					//rdrt_EX = 1'b1;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
@@ -216,10 +215,9 @@ module cpu (
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b000010) begin//srl
-					op_EX = 4'b0111;
+					op_EX = 4'b1001;
 					regwrite_EX = 1'b1;
 					shamt_EX = instruction_EX[10:6];
-					rdrt_EX = 1'b1;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
@@ -285,7 +283,7 @@ module cpu (
 			end else if (instruction_EX[31:26]==6'b001101) begin
 					op_EX = 4'b0001;
 					regwrite_EX = 1'b1;
-					alu_src_EX = 2'b1;
+					alu_src_EX = 2'b11;
 					rdrt_EX = 1'b1;
 			//bne
 			end else if (instruction_EX[31:26]==6'b000101) begin

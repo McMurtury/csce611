@@ -1,0 +1,22 @@
+	li	$2,429496730	# regs(2) <= 0.1
+	li	$3,10		# regs(3) <= 10
+	li	$4,23456789	# user input (replace with sra)
+	
+	multu	$4,$2
+	mfhi	$4		# regs(4) <= whole part of product
+	mflo	$5		# regs(5) <= fractional part of product
+	multu	$5,$3
+	mfhi	$5		# regs(5) <= modulo value
+	sll	$5,$5,28
+	srl	$6,$5,4
+	or	$6,$6,$5
+#.text
+#lui $t1, 2
+#lui $t2, 3
+#lui $t3, 4
+
+#add $t5, $t2, $t1
+#mult $t2, $t5,
+#sub $t7, $t2, $t1
+
+#mfhi $2

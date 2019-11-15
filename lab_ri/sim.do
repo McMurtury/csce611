@@ -33,6 +33,8 @@ add wave /cpu/shamt_EX
 add wave /cpu/A_BP
 add wave /cpu/readdata1_EX
 add wave /cpu/readdata2_EX
+add wave /cpu/myregfile/readdata2
+add wave /cpu/myregfile/mem
 add wave /cpu/lo_WB
 add wave /cpu/lo_CD
 add wave /cpu/hi_EX

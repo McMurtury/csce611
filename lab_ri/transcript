@@ -20,7 +20,7 @@
 # 
 # ------ Compile Verilog Files --------------------------------------------------
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 15:52:24 on Nov 14,2019
+# Start time: 15:57:08 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -30,19 +30,19 @@
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 15:52:24 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 15:57:09 on Nov 15,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # ------ Load Design ------------------------------------------------------------
 # vsim -novopt work.cpu 
-# Start time: 15:52:24 on Nov 14,2019
+# Start time: 15:57:09 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(114): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(114): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
 # ------ Setup Waves ------------------------------------------------------------
 # ------ Simulate ---------------------------------------------------------------
 # .main_pane.transcript.interior.cs.body.t
@@ -60,7 +60,7 @@
 # do ./scripts/test.tcl
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 15:53:05 on Nov 14,2019
+# Start time: 15:57:40 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -70,27 +70,27 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 15:53:05 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 15:57:40 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 15:53:05 on Nov 14,2019, Elapsed time: 0:00:41
+# End time: 15:57:40 on Nov 15,2019, Elapsed time: 0:00:31
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 15:53:05 on Nov 14,2019
+# Start time: 15:57:40 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(114): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(114): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 16:08:59 on Nov 14,2019
+# Start time: 16:02:52 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -100,91 +100,30 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 16:08:59 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 16:02:52 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 16:08:59 on Nov 14,2019, Elapsed time: 0:15:54
+# End time: 16:02:52 on Nov 15,2019, Elapsed time: 0:05:12
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 16:08:59 on Nov 14,2019
+# Start time: 16:02:52 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(112): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(112): [TFMPC] - Missing connection for port 'rst'.
-# .main_pane.transcript.interior.cs.body.t
-# .main_pane.wave.interior.cs.body.pw.wf
-# 0 ns
-# 10503 ns
-do sim.do
-# Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 16:10:30 on Nov 14,2019
-# vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
-# -- Compiling module alu
-# -- Compiling module cpu
-# -- Compiling module regfile
-# -- Compiling module CSCE611_ri_testbench
-# 
-# Top level modules:
-# 	cpu
-# 	CSCE611_ri_testbench
-# End time: 16:10:30 on Nov 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 16:10:30 on Nov 14,2019, Elapsed time: 0:01:31
-# Errors: 0, Warnings: 3
-# vsim -novopt work.cpu 
-# Start time: 16:10:30 on Nov 14,2019
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading sv_std.std
-# Loading work.cpu
-# Loading work.regfile
-# Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(112): [TFMPC] - Too few port connections. Expected 9, found 8.
-#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(112): [TFMPC] - Missing connection for port 'rst'.
-# .main_pane.transcript.interior.cs.body.t
-# .main_pane.wave.interior.cs.body.pw.wf
-# 0 ns
-# 10503 ns
-do sim.do
-# Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 16:15:17 on Nov 14,2019
-# vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
-# -- Compiling module alu
-# -- Compiling module cpu
-# -- Compiling module regfile
-# -- Compiling module CSCE611_ri_testbench
-# 
-# Top level modules:
-# 	cpu
-# 	CSCE611_ri_testbench
-# End time: 16:15:17 on Nov 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 16:15:17 on Nov 14,2019, Elapsed time: 0:04:47
-# Errors: 0, Warnings: 3
-# vsim -novopt work.cpu 
-# Start time: 16:15:17 on Nov 14,2019
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading sv_std.std
-# Loading work.cpu
-# Loading work.regfile
-# Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(112): [TFMPC] - Too few port connections. Expected 9, found 8.
-#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(112): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
 # Causality operation skipped due to absence of debug database file
 add dataflow \
-sim:/cpu/B_EX 
-# Error: invalid command name "::.main_pane.dataflow.interior.cs.body.pw.df.c"
+sim:/cpu/myalu/b 
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 16:25:28 on Nov 14,2019
+# Start time: 16:32:44 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -194,27 +133,27 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 16:25:28 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 16:32:44 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 16:25:28 on Nov 14,2019, Elapsed time: 0:10:11
-# Errors: 1, Warnings: 4
+# End time: 16:32:44 on Nov 15,2019, Elapsed time: 0:29:52
+# Errors: 0, Warnings: 4
 # vsim -novopt work.cpu 
-# Start time: 16:25:28 on Nov 14,2019
+# Start time: 16:32:44 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(112): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(112): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 16:30:59 on Nov 14,2019
+# Start time: 16:40:38 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -224,27 +163,27 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 16:30:59 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 16:40:38 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 16:30:59 on Nov 14,2019, Elapsed time: 0:05:31
+# End time: 16:40:38 on Nov 15,2019, Elapsed time: 0:07:54
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 16:30:59 on Nov 14,2019
+# Start time: 16:40:38 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(112): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(112): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 16:33:06 on Nov 14,2019
+# Start time: 17:03:13 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -254,47 +193,12 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 16:33:06 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 17:03:13 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 16:33:07 on Nov 14,2019, Elapsed time: 0:02:08
+# End time: 17:03:13 on Nov 15,2019, Elapsed time: 0:22:35
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 16:33:07 on Nov 14,2019
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# Loading sv_std.std
-# Loading work.cpu
-# Loading work.regfile
-# Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(112): [TFMPC] - Too few port connections. Expected 9, found 8.
-#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(112): [TFMPC] - Missing connection for port 'rst'.
-# .main_pane.transcript.interior.cs.body.t
-# .main_pane.wave.interior.cs.body.pw.wf
-# 0 ns
-# 10503 ns
-restart -f
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# ** Warning: (vsim-3017) cpu.sv(112): [TFMPC] - Too few port connections. Expected 9, found 8.
-#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(112): [TFMPC] - Missing connection for port 'rst'.
-do sim.do
-# Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 16:53:24 on Nov 14,2019
-# vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
-# -- Compiling module alu
-# -- Compiling module cpu
-# -- Compiling module regfile
-# -- Compiling module CSCE611_ri_testbench
-# 
-# Top level modules:
-# 	cpu
-# 	CSCE611_ri_testbench
-# End time: 16:53:24 on Nov 14,2019, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# End time: 16:53:24 on Nov 14,2019, Elapsed time: 0:20:17
-# Errors: 0, Warnings: 6
-# vsim -novopt work.cpu 
-# Start time: 16:53:24 on Nov 14,2019
+# Start time: 17:03:13 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
@@ -309,7 +213,7 @@ do sim.do
 # 10503 ns
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 16:55:30 on Nov 14,2019
+# Start time: 17:06:40 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -319,27 +223,27 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 16:55:30 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 17:06:40 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 16:55:30 on Nov 14,2019, Elapsed time: 0:02:06
+# End time: 17:06:40 on Nov 15,2019, Elapsed time: 0:03:27
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 16:55:30 on Nov 14,2019
+# Start time: 17:06:40 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:06:22 on Nov 14,2019
+# Start time: 17:27:49 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -349,27 +253,31 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 17:06:22 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 17:27:49 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 17:06:22 on Nov 14,2019, Elapsed time: 0:10:52
+# End time: 17:27:49 on Nov 15,2019, Elapsed time: 0:21:09
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 17:06:22 on Nov 14,2019
+# Start time: 17:27:49 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
+add dataflow \
+sim:/cpu/readdata2_EX 
+add dataflow \
+sim:/cpu/readdata2_EX
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:07:03 on Nov 14,2019
+# Start time: 17:39:54 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -379,27 +287,27 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 17:07:03 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 17:39:54 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 17:07:03 on Nov 14,2019, Elapsed time: 0:00:41
+# End time: 17:39:54 on Nov 15,2019, Elapsed time: 0:12:05
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 17:07:03 on Nov 14,2019
+# Start time: 17:39:54 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:12:00 on Nov 14,2019
+# Start time: 17:42:29 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -409,27 +317,29 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 17:12:00 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 17:42:29 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 17:12:00 on Nov 14,2019, Elapsed time: 0:04:57
+# End time: 17:42:29 on Nov 15,2019, Elapsed time: 0:02:35
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 17:12:00 on Nov 14,2019
+# Start time: 17:42:29 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
+add dataflow \
+sim:/cpu/lo_EX 
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:14:22 on Nov 14,2019
+# Start time: 17:51:57 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -439,32 +349,29 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 17:14:22 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 17:51:57 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 17:14:22 on Nov 14,2019, Elapsed time: 0:02:22
+# End time: 17:51:58 on Nov 15,2019, Elapsed time: 0:09:29
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 17:14:22 on Nov 14,2019
+# Start time: 17:51:58 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
-restart -f
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
-#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+add dataflow \
+sim:/cpu/myregfile/readdata2 
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:26:40 on Nov 14,2019
+# Start time: 17:54:38 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -474,20 +381,20 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 17:26:40 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 17:54:38 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 17:26:40 on Nov 14,2019, Elapsed time: 0:12:18
-# Errors: 0, Warnings: 6
+# End time: 17:54:38 on Nov 15,2019, Elapsed time: 0:02:40
+# Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 17:26:40 on Nov 14,2019
+# Start time: 17:54:38 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
@@ -498,7 +405,7 @@ add dataflow \
 sim:/cpu/lo_EX
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:34:25 on Nov 14,2019
+# Start time: 18:02:42 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -508,32 +415,27 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 17:34:25 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 18:02:42 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 17:34:25 on Nov 14,2019, Elapsed time: 0:07:45
+# End time: 18:02:42 on Nov 15,2019, Elapsed time: 0:08:04
 # Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 17:34:25 on Nov 14,2019
+# Start time: 18:02:42 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
-restart -f
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
-#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:38:11 on Nov 14,2019
+# Start time: 18:04:19 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -543,56 +445,27 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 17:38:11 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 18:04:19 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 17:38:11 on Nov 14,2019, Elapsed time: 0:03:46
-# Errors: 0, Warnings: 6
+# End time: 18:04:19 on Nov 15,2019, Elapsed time: 0:01:37
+# Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 17:38:11 on Nov 14,2019
+# Start time: 18:04:19 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
-restart -f
-# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
-#    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
 do sim.do
 # Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:51:13 on Nov 14,2019
-# vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
-# -- Compiling module alu
-# -- Compiling module cpu
-# ** Error: (vlog-13069) cpu.sv(312): near "'0": syntax error, unexpected UNSIZED_BIT.
-# ** Error: (vlog-13069) cpu.sv(328): near "end": syntax error, unexpected end.
-# ** Error: regfile.sv(24): (vlog-2730) Undefined variable: 'we'.
-# ** Error: regfile.sv(24): (vlog-2730) Undefined variable: 'writeaddr'.
-# ** Error: regfile.sv(24): (vlog-2730) Undefined variable: 'writedata'.
-# ** Error: regfile.sv(27): (vlog-2730) Undefined variable: 'readaddr1'.
-# ** Error: regfile.sv(28): (vlog-2730) Undefined variable: 'writeaddr'.
-# ** Error: regfile.sv(28): (vlog-2730) Undefined variable: 'we'.
-# ** Error: regfile.sv(28): (vlog-2730) Undefined variable: 'writedata'.
-# ** Error: regfile.sv(30): (vlog-2730) Undefined variable: 'readaddr2'.
-# -- Compiling module CSCE611_ri_testbench
-# End time: 17:51:13 on Nov 14,2019, Elapsed time: 0:00:00
-# Errors: 10, Warnings: 0
-# ** Error: /usr/local/3rdparty/mentor/modelsim104b/modeltech/linux_x86_64/vlog failed.
-# Error in macro ./sim.do line 7
-# /usr/local/3rdparty/mentor/modelsim104b/modeltech/linux_x86_64/vlog failed.
-#     while executing
-# "vlog -novopt *.sv"
-do sim.do
-# Model Technology ModelSim SE-64 vlog 10.4b Compiler 2015.05 May 26 2015
-# Start time: 17:52:00 on Nov 14,2019
+# Start time: 18:09:10 on Nov 15,2019
 # vlog -reportprogress 300 -novopt alu.sv cpu.sv regfile.sv testbench.sv 
 # -- Compiling module alu
 # -- Compiling module cpu
@@ -602,23 +475,23 @@ do sim.do
 # Top level modules:
 # 	cpu
 # 	CSCE611_ri_testbench
-# End time: 17:52:00 on Nov 14,2019, Elapsed time: 0:00:00
+# End time: 18:09:10 on Nov 15,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 17:52:00 on Nov 14,2019, Elapsed time: 0:13:49
-# Errors: 13, Warnings: 6
+# End time: 18:09:10 on Nov 15,2019, Elapsed time: 0:04:51
+# Errors: 0, Warnings: 3
 # vsim -novopt work.cpu 
-# Start time: 17:52:00 on Nov 14,2019
+# Start time: 18:09:10 on Nov 15,2019
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # Loading sv_std.std
 # Loading work.cpu
 # Loading work.regfile
 # Loading work.alu
-# ** Warning: (vsim-3017) cpu.sv(117): [TFMPC] - Too few port connections. Expected 9, found 8.
+# ** Warning: (vsim-3017) cpu.sv(116): [TFMPC] - Too few port connections. Expected 9, found 8.
 #    Time: 0 ns  Iteration: 0  Instance: /cpu/myregfile File: regfile.sv
-# ** Warning: (vsim-3722) cpu.sv(117): [TFMPC] - Missing connection for port 'rst'.
+# ** Warning: (vsim-3722) cpu.sv(116): [TFMPC] - Missing connection for port 'rst'.
 # .main_pane.transcript.interior.cs.body.t
 # .main_pane.wave.interior.cs.body.pw.wf
 # 0 ns
 # 10503 ns
-# End time: 18:04:12 on Nov 14,2019, Elapsed time: 0:12:12
+# End time: 18:14:51 on Nov 15,2019, Elapsed time: 0:05:41
 # Errors: 0, Warnings: 3
