@@ -7,10 +7,10 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 d/acct/cnbutler/csce611/lab_ri
+Z0 d/acct/mcmurtum/Documents/csce611/lab_ri
 valu
 Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z2 !s110 1573859350
+Z2 !s110 1574206900
 !i10b 1
 !s100 iPVi6eXfNl>ZgM:@@zi]]1
 IoCJMfm^6N6NB=3[3zIe2=0
@@ -18,42 +18,42 @@ Z3 VDg1SIo80bB@j0V0VzS_@n1
 !s105 alu_sv_unit
 S1
 R0
-w1573772664
+Z4 w1574193137
 8alu.sv
 Falu.sv
 L0 1
-Z4 OL;L;10.4b;61
+Z5 OL;L;10.4b;61
 r1
 !s85 0
 31
-Z5 !s108 1573859350.000000
-Z6 !s107 testbench.sv|regfile.sv|cpu.sv|alu.sv|
-Z7 !s90 -reportprogress|300|-novopt|alu.sv|cpu.sv|regfile.sv|testbench.sv|
+Z6 !s108 1574206900.000000
+Z7 !s107 testbench.sv|regfile.sv|cpu.sv|alu.sv|
+Z8 !s90 -reportprogress|300|-novopt|alu.sv|cpu.sv|regfile.sv|testbench.sv|
 !i113 1
-Z8 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z9 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 vcpu
 R1
 R2
 !i10b 1
-!s100 eoE0X>[S[N5f@XaPfTNk93
-INngz8JF`^mG<8aGD7CGCK1
+!s100 eQ?Y<^khRbUk[:<hZC^:R1
+IORoCiC^GEKRBJMF<RXlK:2
 R3
 !s105 cpu_sv_unit
 S1
 R0
-w1573859053
+w1574206894
 8cpu.sv
 Fcpu.sv
 L0 3
-R4
+R5
 r1
 !s85 0
 31
-R5
 R6
 R7
-!i113 1
 R8
+!i113 1
+R9
 vCSCE611_ri_testbench
 R1
 R2
@@ -64,19 +64,19 @@ R3
 !s105 testbench_sv_unit
 S1
 R0
-w1573597605
+R4
 8testbench.sv
 Ftestbench.sv
 L0 1
-R4
+R5
 r1
 !s85 0
 31
-R5
 R6
 R7
-!i113 1
 R8
+!i113 1
+R9
 n@c@s@c@e611_ri_testbench
 vregfile
 R1
@@ -88,16 +88,16 @@ R3
 !s105 regfile_sv_unit
 S1
 R0
-w1572989605
+R4
 8regfile.sv
 Fregfile.sv
 L0 3
-R4
+R5
 r1
 !s85 0
 31
-R5
 R6
 R7
-!i113 1
 R8
+!i113 1
+R9

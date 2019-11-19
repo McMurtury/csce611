@@ -26,7 +26,7 @@ module cpu (
 	logic [31:0] instruction_EX;
 
 	//alu signals
-	logic [31:0] A_EX,B_EX,hi_EX,lo_EX;
+	logic [31:0] A_EX,B_EX,hi_EX,lo_EX, hi_old, lo_old;
 	logic [4:0] shamt_EX;
 	logic [3:0] op_EX;
 	logic zero_EX;
@@ -89,6 +89,8 @@ module cpu (
 			instruction_EX <= 32'b0;
 		end else begin
 			instruction_EX <= instruction_memory[PC_FETCH];
+			if(instruction_EX[5:0] == 6'b011001 || instruction_EX[5:0] == 6'b011000) hi_old <= hi_EX;
+			if(instruction_EX[5:0] == 6'b011001 || instruction_EX[5:0] == 6'b011000) lo_old <= lo_EX;
 			PC_FETCH <= pc_src_EX == 2'b0 ? PC_FETCH + 12'b1 : 
 				PC_FETCH + instruction_EX[11:0];
 		end
@@ -110,7 +112,8 @@ module cpu (
 	always_ff @(posedge clk,posedge rst) begin
 			if(lo_CD == 2'b0) lo_WB <= lo_EX; //<=
 			else if (lo_CD == 2'b1) lo_WB <= hi_EX; //<=
-			//else if (lo_CD == 2'b10) lo_WB <= lo_EX;
+			else if (lo_CD == 2'b10) lo_WB <= lo_old;
+			else if (lo_CD == 2'b11) lo_WB <= hi_old;
 	end
 
 	regfile myregfile (.clk(clk),
@@ -166,14 +169,14 @@ module cpu (
 
 				end else if (instruction_EX[5:0] == 6'b011000) begin//mult
 					op_EX = 4'b0110;
-					regwrite_EX = 1'b1;
+					regwrite_EX = 1'b0;
 					rdrt_EX = 1'b1;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b011001) begin//multu
 					op_EX = 4'b0111;
-					regwrite_EX = 1'b1;
+					regwrite_EX = 1'b0;
 					rdrt_EX = 1'b1;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
@@ -181,28 +184,28 @@ module cpu (
 				end else if (instruction_EX[5:0] == 6'b100100) begin//and
 					op_EX = 4'b0000;
 					regwrite_EX = 1'b1;
-					rdrt_EX = 1'b1;
+					rdrt_EX = 1'b0;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b100101) begin//or
 					op_EX = 4'b0001;
 					regwrite_EX = 1'b1;
-					rdrt_EX = 1'b1;
+					rdrt_EX = 1'b0;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b100110) begin//xor
 					op_EX = 4'b0011;
 					regwrite_EX = 1'b1;
-					rdrt_EX = 1'b1;
+					rdrt_EX = 1'b0;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b100111) begin//nor
 					op_EX = 4'b0010;
 					regwrite_EX = 1'b1;
-					rdrt_EX = 1'b1;
+					rdrt_EX = 1'b0;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
@@ -210,7 +213,7 @@ module cpu (
 					op_EX = 4'b1000;
 					regwrite_EX = 1'b1;
 					shamt_EX = instruction_EX[10:6];
-					rdrt_EX = 1'b1;
+					rdrt_EX = 1'b0;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
@@ -222,31 +225,31 @@ module cpu (
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b000011) begin//sra
-					op_EX = 4'b101X;
+					op_EX = 4'b1011;
 					regwrite_EX = 1'b1;
 					shamt_EX = instruction_EX[10:6];
-					rdrt_EX = 1'b1;
+					rdrt_EX = 1'b0;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b101010) begin//slt
 					op_EX = 4'b1100;
 					regwrite_EX = 1'b1;
-					rdrt_EX = 1'b1;
+					rdrt_EX = 1'b0;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b101011) begin//sltu
-					op_EX = 4'b11XX;
+					op_EX = 4'b1111;
 					regwrite_EX = 1'b1;
-					rdrt_EX = 1'b1;
+					rdrt_EX = 1'b0;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
 				end else if (instruction_EX[5:0] == 6'b010000) begin//mfhi
 					regwrite_EX = 1'b1;
 					rdrt_EX = 1'b0;
-					lo_CD = 2'b1;
+					lo_CD = 2'b11;
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
 
@@ -270,7 +273,7 @@ module cpu (
 				 instruction_EX[31:26]==6'b001001) begin
 					
 					regwrite_EX = 1'b1;
-					alu_src_EX = 2'b10;
+					alu_src_EX = 2'b11;
 					rdrt_EX = 1'b1;
 			//lui
 			end else if (instruction_EX[31:26]==6'b001111) begin
