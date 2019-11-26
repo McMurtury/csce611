@@ -44,10 +44,10 @@ module rpncalc (
  *
  */
 	//Counter
-	logic [7:0] count, last;
+	static logic [7:0] count, last;
 
 	//key delays
-	logic [3:0 ] key_dly, key2_dly;
+	logic [3:0] key_dly, key2_dly;
 
 	//data
 	logic [31:0] readdata1, readdata2, results, data;
@@ -86,27 +86,28 @@ module rpncalc (
 		   .hi(hi),
 		   .zero(zero));
 
-	//initialize count values, default zero.
-	initial begin
-		logic [7:0]   count = 0;
-		logic [7:0]   last = 0;
-	end
 
 	//Updating the address of the second to top element.
-	assign last = count == 8'b0; 8'b0 : count - 1;
+	assign last = count == 8'b0 ? 8'b0 : 
+			count == -1 ? 8'b0 : count - 1;
+
+	//Outputs the count to the counter.
+	assign counter = count + 1;
 
 	//mux for the value to be push to the stack.
-	assign data = push_by == 1'b1; val : results;
+	assign data = push_by == 1'b1 ? val : results;
 
 	//go signal to detect user input
-	assign go = key2_dly == 4'b1 && key_dly != key2_dly;
-			1'b1 : 1'b0;
+	assign go = key2_dly != 4'b1111 ? 1'b0 : 
+		    key_dly != key2_dly ? 1'b1 :
+			1'b0;
 
 	//Updating the states
 	always_ff @(posedge clk, posedge rst) begin
+		key2_dly = key_dly;		
 		key_dly = key;
-		key2_dly = key_dly;
-		if(rst) next_state = reset;
+		
+		if(rst) current_state = reset;
 		else begin
 			current_state = next_state;
 		end
@@ -142,42 +143,48 @@ module rpncalc (
 					if (key == 4'b0) next_state = idle;
 					else if (key == 4'b1) next_state = idle;
 					else if (key == 4'b10) next_state = idle;
-					else if (key == 4'b11) next_state = resev_op;
+					else if (key == 4'b11) next_state = reves_op;
 				end
+			end
 				
 		end else if (current_state == pop) begin
-
+			if (count != 0) count = count - 1;
+			next_state = idle;
 		end else if (current_state == push) begin
+			count = count + 1;
 			push_by = 1'b1;
 			regwrite_WB = 1'b1;
+			next_state = idle;
 		end else if (current_state == add_op) begin
-
+			next_state = idle;
 		end else if (current_state == or_op) begin
-
+			next_state = idle;
 		end else if (current_state == mult_op) begin
-
+			next_state = idle;
 		end else if (current_state == nor_op) begin
-
+			next_state = idle;
 		end else if (current_state == xor_op) begin
-
+			next_state = idle;
 		end else if (current_state == reves_op) begin
-
+			next_state = idle;
 		end else if (current_state == sub_op) begin
-
+			next_state = idle;
 		end else if (current_state == umult_op) begin
-
+			next_state = idle;
 		end else if (current_state == shiftL_op) begin
-
+			next_state = idle;
 		end else if (current_state == shiftR_op) begin
-
+			next_state = idle;
 		end else if (current_state == comp_op) begin
-
+			next_state = idle;
 		end else if (current_state == and_op) begin
-
+			next_state = idle;
 		end else if (current_state == reset) begin
 			next_state = idle;
+			count = -1;
 		end
 
+	end
 
 
 endmodule
