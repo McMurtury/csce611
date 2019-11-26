@@ -38,8 +38,7 @@ add wave /rpncalc/go
 add wave /rpncalc/count
 add wave /rpncalc/opcode
 
-
-
+add wave /rpncalc/memory/mem
 
 
 force -freeze sim:/rpncalc/clk 1 0, 0 {50 ns} -r 100
@@ -55,7 +54,12 @@ run
 force val 16'hBEEF 
 
 run
-force rst 1        
+force rst 0
+run
+force rst 1
+run
+force rst 0
+run        
 force mode 2'b00   
 #force key 4'hf  
 force key 4'hf
@@ -65,7 +69,7 @@ force rst 0
 
 run
 #force go 1
-force key 4'h0111
+#force key 4'h0111
 #force key_dly 4'b0111  
      
 run 100
