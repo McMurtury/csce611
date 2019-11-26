@@ -23,6 +23,7 @@ add wave /cpu/clk
 add wave /cpu/rst
 add wave /cpu/PC_FETCH
 add wave /cpu/instruction_EX
+add wave /cpu/gpio_out
 add wave /cpu/op_EX
 add wave /cpu/rdrt_EX
 add wave /cpu/regwrite_WB

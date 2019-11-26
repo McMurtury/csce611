@@ -223,6 +223,10 @@ module cpu (
 					shamt_EX = instruction_EX[10:6];
 					if (instruction_EX[20:16] == writeaddr_WB) alu_src_EX = 2'b10;
 					if (instruction_EX[25:21] == writeaddr_WB) A_BP = 1'd1;
+					if (shamt_EX == 5'b0) begin 
+						GPIO_out_en = 1'b1;
+						regwrite_EX = 1'b0;
+					end
 
 				end else if (instruction_EX[5:0] == 6'b000011) begin//sra
 					op_EX = 4'b1011;
