@@ -1,7 +1,7 @@
 #vlog *.sv
 #vlog *.sv
 
-restart -f
+#restart -f
 
 #restart -f
 vlog -novopt *.sv
@@ -22,21 +22,18 @@ add wave /rpncalc/val
 
 add wave /rpncalc/top
 add wave /rpncalc/next
-#add wave /rpncalc/counter
-add wave /rpncalc/pop
-add wave /rpncalc/push
+add wave /rpncalc/count
+add wave /rpncalc/last
+add wave /rpncalc/counter
+
 
 add wave /rpncalc/op
 add wave /rpncalc/key_dly
-add wave /rpncalc/key_dly2
-add wave /rpncalc/a
-add wave /rpncalc/b
+add wave /rpncalc/key2_dly
 
 add wave /rpncalc/current_state
 add wave /rpncalc/next_state
 add wave /rpncalc/go
-add wave /rpncalc/count
-add wave /rpncalc/opcode
 
 add wave /rpncalc/memory/mem
 
@@ -52,7 +49,7 @@ force -freeze sim:/rpncalc/clk 1 0, 0 {50 ns} -r 100
 # -------------------------------------- #
 run    
 force val 16'hBEEF 
-
+force key 4'hf
 run
 force rst 0
 run
@@ -62,27 +59,29 @@ force rst 0
 run        
 force mode 2'b00   
 #force key 4'hf  
-force key 4'hf
+
 
 run 
-force rst 0 
-
+#push
+force key 4'b11
+run 
+force key 4'hf
 run
-#force go 1
-#force key 4'h0111
-#force key_dly 4'b0111  
-     
-run 100
-#force key 4'b1111     
-run 500
+#force key 4'b10
+force key 4'b11
+run 
+force key 4'hf
+run
+force key 4'b11
+run 
+force key 4'hf
+run
+run
+run
+run
+
+
 #force val 16'hDEAD 
-#force mode 2'b00   
-#force key 4'hf 
-#run
-#force push 1       
-#run
-#force push 0       
-#run
 # This key press corresponds to op input 4'b1110 -> 4'he
 #force key 4'b0100                      
 #run 500

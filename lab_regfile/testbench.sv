@@ -10,7 +10,7 @@ module CSCE611_regfile_testbench(
 
 	output [7:0] counter
 );
-	logic [1:0] mode;
+	/*logic [1:0] mode;
 	logic [3:0] key;
 	logic rst;
 	logic [15:0] val;
@@ -24,7 +24,7 @@ module CSCE611_regfile_testbench(
 
 	rpncalc test(.clk(clk), .rst(rst), .mode(mode), .key(key), .val(val), .top(top), .next(next), .counter(counter));
 	
-
+*/
 
 endmodule
 /*

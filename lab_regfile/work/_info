@@ -10,7 +10,7 @@ cModel Technology
 Z0 d/acct/mcmurtum/Documents/csce611/lab_regfile
 valu
 Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
-Z2 !s110 1574805592
+Z2 !s110 1574811017
 !i10b 1
 !s100 o9iDP_NVzcR9ED6L;N:mc2
 I=P<nR?F[5hA>XT]4l40PC2
@@ -26,9 +26,9 @@ Z5 OL;L;10.4b;61
 r1
 !s85 0
 31
-Z6 !s108 1574805592.000000
-Z7 !s107 testbench.sv|rpncalc.sv|regfile.sv|oldtestbench.sv|oldrpncalc.sv|csce611_regfile_testbench.sv|alu.sv|CSCE611_lab_regfile.sv|
-Z8 !s90 -reportprogress|300|-novopt|CSCE611_lab_regfile.sv|alu.sv|csce611_regfile_testbench.sv|oldrpncalc.sv|oldtestbench.sv|regfile.sv|rpncalc.sv|testbench.sv|
+Z6 !s108 1574811016.000000
+Z7 !s107 testbench.sv|rpncalc.sv|regfile.sv|oldtestbench.sv|csce611_regfile_testbench.sv|alu.sv|CSCE611_lab_regfile.sv|
+Z8 !s90 -reportprogress|300|-novopt|CSCE611_lab_regfile.sv|alu.sv|csce611_regfile_testbench.sv|oldtestbench.sv|regfile.sv|rpncalc.sv|testbench.sv|
 !i113 1
 Z9 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
 vCSCE611_lab_regfile
@@ -59,15 +59,15 @@ vCSCE611_regfile_testbench
 R1
 R2
 !i10b 1
-!s100 GiQ_8NAoPQnG=87O2i66U1
-IBkTOmRTQad0;eC>bR;m000
+!s100 lT3XWXn5HmkZ2AAgLEFG_0
+I=5g<8YWgjeeH6ki>T`n=E3
 R3
-!s105 oldtestbench_sv_unit
+!s105 testbench_sv_unit
 S1
 R0
-w1572032574
-8oldtestbench.sv
-Foldtestbench.sv
+w1574806632
+8testbench.sv
+Ftestbench.sv
 L0 1
 R5
 r1
@@ -106,15 +106,15 @@ vrpncalc
 R1
 R2
 !i10b 1
-!s100 O3KcHO;XH?1N@7PXZd23O2
-I4>zBlEkCBGJZ5X1gki8iA3
+!s100 <3Y<cml2KdLSc>bAc>PTZ1
+I?3COj2iU`JELJ6_QEJXFS1
 R3
-!s105 oldrpncalc_sv_unit
+!s105 rpncalc_sv_unit
 S1
 R0
-w1572552828
-8oldrpncalc.sv
-Foldrpncalc.sv
+w1574811008
+8rpncalc.sv
+Frpncalc.sv
 L0 3
 R5
 r1
