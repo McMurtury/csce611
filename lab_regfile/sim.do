@@ -19,6 +19,10 @@ add wave /rpncalc/rst
 add wave /rpncalc/mode
 add wave /rpncalc/key
 add wave /rpncalc/val
+add wave /rpncalc/results
+add wave /rpncalc/results_stall
+add wave /rpncalc/readdata1
+add wave /rpncalc/readdata2
 
 add wave /rpncalc/top
 add wave /rpncalc/next
@@ -27,7 +31,7 @@ add wave /rpncalc/last
 add wave /rpncalc/counter
 
 
-add wave /rpncalc/op
+add wave /rpncalc/op_code
 add wave /rpncalc/key_dly
 add wave /rpncalc/key2_dly
 
@@ -48,7 +52,7 @@ force -freeze sim:/rpncalc/clk 1 0, 0 {50 ns} -r 100
 # - Sequence to push values onto stack - # 
 # -------------------------------------- #
 run    
-force val 16'hBEEF 
+force val 16'h5 
 force key 4'hf
 run
 force rst 0
@@ -59,22 +63,26 @@ force rst 0
 run        
 force mode 2'b00   
 #force key 4'hf  
-
-
 run 
 #push
 force key 4'b11
 run 
 force key 4'hf
 run
-#force key 4'b10
-force key 4'b11
-run 
-force key 4'hf
+run
+force val 16'h2
 run
 force key 4'b11
 run 
 force key 4'hf
+run
+force mode 2'b11
+run
+force key 4'b11
+run
+force key 4'hf
+run
+run
 run
 run
 run
