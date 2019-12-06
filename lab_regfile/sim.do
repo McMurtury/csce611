@@ -60,33 +60,216 @@ run
 force rst 1
 run
 force rst 0
-run        
-force mode 2'b00   
-#force key 4'hf  
-run 
-#push
-force key 4'b11
+run
+
+#pushes values to sim
+force mode 2'b00
+run
 run 
 force key 4'hf
 run
+force key 4'b11
+run
+run
+force key 4'hf
 run
 force val 16'h2
 run
 force key 4'b11
+run
+run
+force key 4'hf
+force val 16'h3
+run
+run
+force key 4'b11
+run
+force key 4'hf
+force val 16'h4
+run
+run
+force key 4'b11
+run
+force key 4'hf
+force val 16'h6
+run
+force key 4'b11
 run 
 force key 4'hf
+force val 16'h2
 run
+#second set of val
+force key 4'hf
+run
+force val 16'h2
+run
+force key 4'b11
+run
+run
+force key 4'hf
+force val 16'h3
+run
+run
+force key 4'b11
+run
+force key 4'hf
+force val 16'h4
+run
+run
+force key 4'b11
+run
+force key 4'hf
+force val 16'h6
+run
+force key 4'b11
+run 
+force key 4'hf
+force val 16'h2
+run
+
+#third set of val
+force key 4'hf
+run
+force val 16'h2
+run
+force key 4'b11
+run
+run
+force key 4'hf
+force val 16'h3
+run
+run
+force key 4'b11
+run
+force key 4'hf
+force val 16'h4
+run
+run
+force key 4'b11
+run
+force key 4'hf
+force val 16'h6
+run
+force key 4'b11
+run 
+force key 4'hf
+force val 16'h2
+run
+
+run
+run
+
+#runs the operations
+force mode 2'b10
+run
+#force key 4'b0
+run
+force key 4'hf
+run
+run
+run
+force key 4'b1
+run
+force key 4'hf
+run
+run
+run
+force key 4'b10
+run
+force key 4'hf
+run
+run
+run
+force key 4'b11
+run
+force key 4'hf
+run
+run
+run
+force key 4'b0
+run
+run
+run
+
+force mode 2'b00
+run
+#force key 4'b0
+run
+force key 4'hf
+run
+run
+run
+force key 4'b1
+run
+force key 4'hf
+run
+run
+run
+force key 4'b10
+run
+force key 4'hf
+run
+run
+run
+force key 4'b11
+run
+force key 4'hf
+run
+run
+run
+force key 4'b0
+run
+run
+run
+
+force mode 2'b01
+run
+#force key 4'b0
+run
+force key 4'hf
+run
+run
+run
+force key 4'b1
+run
+force key 4'hf
+run
+run
+run
+force key 4'b10
+run
+force key 4'hf
+run
+run
+run
+force key 4'b11
+run
+force key 4'hf
+run
+run
+run
+force key 4'b0
+run
+run
+run
+
 force mode 2'b11
 run
 force key 4'b11
 run
 force key 4'hf
 run
+force mode 2'b01
+run
+force key 4'b0
 run
 run
 run
+
 run
 run
+run
+
 
 
 #force val 16'hDEAD 

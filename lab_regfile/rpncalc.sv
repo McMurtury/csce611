@@ -62,7 +62,7 @@ module rpncalc (
 	typedef enum logic [4:0] {
 	reset, idle, pop, push, add_op, or_op, mult_op, nor_op, xor_op,
 	reves_op, sub_op, umult_op, shiftL_op, shiftR_op, comp_op,
-	and_op, stall, stall_two, stall_three
+	and_op, stall, stall_two, stall_three, stall_four
 	} state_type;
 
 	static state_type current_state, next_state;
@@ -83,7 +83,7 @@ module rpncalc (
 	//The alu
 	alu myalu (.a(readdata1),
 		   .b(readdata2),
-		   .shamt(shamt),
+		   .shamt(readdata1),
 		   .op(op_code),
 		   .lo(results),
 		   .hi(hi),
@@ -163,91 +163,94 @@ module rpncalc (
 				end
 			end
 				
-		end else if (current_state == pop) begin
+		end else if (current_state == pop) begin //pop
 			if (count >= 0) count_EN = 2'b10;
 			next_state = idle;
-		end else if (current_state == push) begin
+		end else if (current_state == push) begin //push
 			count_EN = 2'b1;
 			push_by = 1'b1;
 			regwrite_WB = 1'b1;
 			next_state = idle;
-		end else if (current_state == add_op) begin
+		end else if (current_state == add_op) begin //add
 			op_code = 4'b0100;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == or_op) begin
+		end else if (current_state == or_op) begin //or
 			op_code = 4'b00_01;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == mult_op) begin
+		end else if (current_state == mult_op) begin //mult
 			op_code = 4'b01_10;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == nor_op) begin
+		end else if (current_state == nor_op) begin //nor
 			op_code = 4'b00_10;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == xor_op) begin
+		end else if (current_state == xor_op) begin //xor
 			op_code = 4'b00_11;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == reves_op) begin
+		end else if (current_state == reves_op) begin //reverse
 			results_stall = readdata1;
 			results_stall_two = readdata2;
 			count_EN = 2'b11;
 			next_state = stall_two;
-		end else if (current_state == sub_op) begin
+		end else if (current_state == sub_op) begin // sub
 			op_code = 4'b01_01;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == umult_op) begin
+		end else if (current_state == umult_op) begin //unsigned mult
 			op_code = 4'b01_11;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == shiftL_op) begin
+		end else if (current_state == shiftL_op) begin //sll
 			op_code = 4'b1000;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == shiftR_op) begin
+		end else if (current_state == shiftR_op) begin //srl
 			op_code = 4'b1001;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == comp_op) begin
+		end else if (current_state == comp_op) begin //compare
 			op_code = 4'b11_00;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == and_op) begin
+		end else if (current_state == and_op) begin //and
 			op_code = 4'b00_00;
 			count_EN = 2'b11;
 			results_stall = results;
 			next_state = stall;
-		end else if (current_state == reset) begin
+		end else if (current_state == reset) begin //rst
 			next_state = idle;
-		end else if (current_state == stall) begin
+		end else if (current_state == stall) begin //stall
 			regwrite_WB = 1'b1;
 			push_by = 1'b0;
-			next_state = idle;
-		end else if (current_state == stall_two) begin
+			next_state = stall_four;
+		end else if (current_state == stall_two) begin //stall2
 			regwrite_WB = 1'b1;
 			push_by = 1'b0;
 			count_EN = 2'b1;
 			//results_stall = results_stall_two;
 			next_state = stall_three;
-		end else if (current_state == stall_three) begin
+		end else if (current_state == stall_three) begin //stall3
 			regwrite_WB = 1'b1;
 			push_by = 1'b0;
 			next_state = idle;
 			results_stall = results_stall_two;
+			count_EN = 2'b1;
+		end else if (current_state == stall_four) begin //stall4
+			next_state = idle;
 			count_EN = 2'b1;
 		end
 
